@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='login/login.css') }}">
+    <title>Подтверждение входа - Telegram</title>
+    <link rel="icon" href="{{ url_for('static', path='img/favicon.ico') }}" type="image/x-icon">
+    <style>
+        .telegram-confirm {
+            text-align: center;
+            padding: 20px;
+        }
+        .telegram-info {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .telegram-button {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .telegram-button:hover {
+            background-color: #006699;
+        }
+        .cancel-button {
+            background-color: #dc3545;
+        }
+        .cancel-button:hover {
+            background-color: #c82333;
+        }
+        .loading {
+            display: none;
+            margin: 20px 0;
+        }
+        .error {
+            color: #dc3545;
+            margin: 10px 0;
+        }
+        .success {
+            color: #28a745;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="form telegram-confirm">
+        <img src="{{ url_for('static', path='img/logo.png') }}" alt="" width="40%">
+
+        <h2>Подтверждение входа</h2>
+
+        <div class="telegram-info">
+            <p><strong>Пользователь:</strong> {{ username }}</p>
+            <p><strong>Telegram username:</strong> @{{ telegram_username }}</p>
+            <p>Для завершения входа подтвердите свой Telegram аккаунт через Login Widget.<br>
+            <strong>Важно:</strong> Telegram должен предоставить тот же username (@{{ telegram_username }}), что указан в вашем профиле.</p>
+        </div>
+
+        <div id="telegram-widget">
+            <!-- Здесь будет виджет Telegram Login -->
+        </div>
+
+        <div class="loading" id="loading">
+            <p>Проверяем Telegram username...</p>
+        </div>
+
+        <div id="error-message" class="error"></div>
+        <div id="success-message" class="success"></div>
+
+        <button type="button" class="telegram-button cancel-button" onclick="cancelLogin()">
+            Отменить вход
+        </button>
+    </div>
+
+    <script>
+        const sessionToken = '{{ session_token }}';
+
+        // Создаем виджет Telegram Login с запросом номера телефона
+        function createTelegramWidget() {
+            const widget = document.createElement('script');
+            widget.src = 'https://telegram.org/js/telegram-widget.js?22';
+            widget.setAttribute('data-telegram-login', '{{ telegram_bot_username }}');
+            widget.setAttribute('data-size', 'large');
+            widget.setAttribute('data-onauth', 'onTelegramAuth(user)');
+            widget.setAttribute('data-request-access', 'write');
+            widget.setAttribute('data-auth-url', window.location.origin + '/telegram-auth-callback');
+            document.getElementById('telegram-widget').appendChild(widget);
+        }
+
+        // Callback для успешной авторизации Telegram
+        function onTelegramAuth(user) {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('error-message').textContent = '';
+
+            console.log('Telegram user data:', user);
+
+            // Отправляем данные на сервер для проверки Telegram username
+            fetch('/telegram-auth-confirm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    session_token: sessionToken,
+                    telegram_data: user
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('loading').style.display = 'none';
+
+                if (data.success) {
+                    document.getElementById('success-message').textContent = 'Telegram username подтвержден! Перенаправляем...';
+
+                    // Завершаем авторизацию с установкой cookies
+                    setTimeout(() => {
+                        completeLogin(data.worker_data);
+                    }, 1000);
+                } else {
+                    document.getElementById('error-message').textContent = data.error || 'Ошибка проверки Telegram username';
+                }
+            })
+            .catch(error => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error-message').textContent = 'Ошибка соединения с сервером';
+                console.error('Error:', error);
+            });
+        }
+
+        // Завершение входа с установкой cookies через POST запрос
+        function completeLogin(workerData) {
+            fetch('/complete-telegram-login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    worker_data: workerData
+                })
+            })
+            .then(response => {
+                // Если сервер возвращает редирект, следуем за ним
+                if (response.redirected) {
+                    window.location.href = response.url;
+                } else if (response.ok) {
+                    // Если нет автоматического редиректа, делаем его вручную
+                    const redirectUrl = '/worker/products'; // дефолтный URL
+                    if (workerData.role_name === 'senior_admin') redirectUrl = '/admin-senior/postamats';
+                    else if (workerData.role_name === 'junior_admin') redirectUrl = '/admin-junior/offices';
+                    else if (workerData.role_name === 'owner') redirectUrl = '/owner/statistics';
+                    else if (workerData.role_name === 'postamat_worker') redirectUrl = '/worker-postamat';
+
+                    window.location.href = redirectUrl;
+                } else {
+                    throw new Error('Ошибка завершения авторизации');
+                }
+            })
+            .catch(error => {
+                document.getElementById('error-message').textContent = 'Ошибка завершения авторизации';
+                console.error('Error completing login:', error);
+            });
+        }
+
+        // Отмена входа
+        function cancelLogin() {
+            window.location.href = '/login';
+        }
+
+        // Инициализация виджета при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            createTelegramWidget();
+        });
+    </script>
+</body>
+</html>

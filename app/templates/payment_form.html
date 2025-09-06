@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ form_title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .payment-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .payment-button {
+            width: 100%;
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .payment-button:hover {
+            background: #45a049;
+        }
+        .amount-info {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .security-info {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
+</head>
+<body>
+    <div class="payment-form">
+        <h2 class="form-title">{{ form_title }}</h2>
+
+        {% if action == 'bind_card' %}
+        <div class="amount-info">
+            <strong>Сумма для привязки карты: {{ amount }} руб.</strong>
+            <br><small>Эта сумма будет возвращена на вашу карту в течение 24 часов</small>
+        </div>
+        {% endif %}
+
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="cardNumber">Номер карты:</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+            </div>
+
+            <div style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex: 1;">
+                    <label for="cardExpiry">Срок действия:</label>
+                    <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                </div>
+
+                <div class="form-group" style="flex: 1;">
+                    <label for="cardCvc">CVC:</label>
+                    <input type="text" id="cardCvc" placeholder="123" maxlength="3" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cardHolder">Имя держателя карты:</label>
+                <input type="text" id="cardHolder" placeholder="IVAN IVANOV" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="email@example.com" required>
+            </div>
+
+            <button type="submit" class="payment-button">
+                {% if action == 'bind_card' %}
+                Привязать карту
+                {% else %}
+                Оплатить {{ amount }} руб.
+                {% endif %}
+            </button>
+        </form>
+
+        <div class="security-info">
+            🔒 Платежи обрабатываются через защищенный сервис CloudPayments<br>
+            Ваши данные карты не сохраняются на наших серверах
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+            const cardExpiry = document.getElementById('cardExpiry').value;
+            const cardCvc = document.getElementById('cardCvc').value;
+            const cardHolder = document.getElementById('cardHolder').value;
+            const email = document.getElementById('email').value;
+
+            // Валидация
+            if (!cardNumber || !cardExpiry || !cardCvc || !cardHolder || !email) {
+                alert('Пожалуйста, заполните все поля');
+                return;
+            }
+
+            const [month, year] = cardExpiry.split('/');
+
+            const widget = new cp.CloudPayments();
+            widget.charge({
+                publicId: 'YOUR_PUBLIC_ID', // TODO: Заменить на реальный Public ID
+                description: '{{ form_title }}',
+                amount: {{ amount }},
+                currency: 'RUB',
+                accountId: '{{ user_id }}',
+                invoiceId: 'card_bind_{{ user_id }}_' + Date.now(),
+                email: email,
+                skin: "mini",
+                data: {
+                    cardNumber: cardNumber,
+                    expDateMonth: month,
+                    expDateYear: '20' + year,
+                    cvv: cardCvc,
+                    name: cardHolder
+                }
+            },
+            function (options) {
+                // Успешная оплата
+                alert('Карта успешно привязана!');
+                window.close();
+            },
+            function (reason, options) {
+                // Неуспешная оплата
+                alert('Ошибка при привязке карты: ' + reason);
+            });
+        });
+
+        // Форматирование номера карты
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.replace(/(.{4})/g, '$1 ').trim();
+            e.target.value = formattedValue;
+        });
+
+        // Форматирование срока действия
+        document.getElementById('cardExpiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Только цифры для CVC
+        document.getElementById('cardCvc').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+    </script>
+</body>
+</html>

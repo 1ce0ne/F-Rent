@@ -1,0 +1,122 @@
+.confs {
+    width: 15%;
+    height: 65%;
+    margin-right: 20px;
+}
+
+#head1-conf1 {
+    margin-left: 1%;
+    width: 27%;
+}
+
+#head2-conf1 {
+    width: 27%;
+}
+
+#head3-conf1 {
+    width: 20%;
+}
+
+
+#head11 {
+    margin-left: 1%;
+    width: 27%;
+}
+
+#head21 {
+    width: 27%;
+}
+#head31{
+    width: 20%;
+}
+.more {
+    height: 70%;
+    width: 70%;
+    background-color: var(--blue);
+    color: white;
+    border: 3px var(--grey);
+    border-radius: 0.3em;
+    box-shadow: 2px 2px 5px 1px var(--grey);
+}
+.actions {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    width: 25%;
+}
+.more:hover, .add:hover, .ord:hover {
+    background-color: var(--darkblue);
+}
+
+.more:active, .add:active, .ord:active {
+    transform: scale(0.98);
+}
+.product {
+    width: 60%;
+    max-width: 700px;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid var(--grey);
+}
+.infotext {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.product-info {
+    border: 1px solid transparent;
+
+    width: 98%;
+    height: 93%;
+    border-radius: 24px;
+    padding-top: 2%;
+}
+
+.img-and-describe {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.img {
+    border: 1px solid transparent;
+    border-radius: 25px;
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.describe {
+    width: 65%;
+    height: 90%;
+}
+.p {
+    height: 80%;
+    width: 100%;
+    white-space: normal;
+}
+.pricement {
+    width: 65%;
+    height: 25%;
+    border: 1px solid var(--grey);
+    border-radius: 10px;
+    box-shadow: 2px 2px 9px 1px var(--grey);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+.per-x {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}

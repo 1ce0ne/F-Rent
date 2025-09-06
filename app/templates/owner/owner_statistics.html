@@ -1,0 +1,118 @@
+{% extends 'owner/owner_base.html' %}
+{% block title %}Статистика - Owner Panel{% endblock %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="{{ url_for('static', path='owner/style/owner_statistics_style.css') }}">
+{% endblock %}
+{% block content %}
+
+<div class="statistics-outer-center">
+    <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+    <div class="statistics-container">
+        <h2>Статистика</h2>
+        <div class="stat-tabs">
+            <button class="stat-tab-btn active" data-tab="common">Общая</button>
+            <button class="stat-tab-btn" data-tab="categories">По категориям</button>
+            <button class="stat-tab-btn" data-tab="products">По товарам</button>
+        </div>
+        <div class="stat-tab-content" id="tab-common">
+            <div class="stats-row">
+                <div id="income" class="stat-block income-block">
+                    <div class="income-label">Доход</div>
+                    <div class="income-value">0 ₽</div>
+                </div>
+                <div id="orders" class="stat-block">
+                    <div class="label">Заказы</div>
+                    <div class="value">0</div>
+                </div>
+                <div id="clients" class="stat-block">
+                    <div class="label">Клиенты</div>
+                    <div class="value">0</div>
+                </div>
+                <div class="stat-block">
+                    <label for="period">Период:</label>
+                    <select id="period">
+                        <option value="day">День</option>
+                        <option value="week">Неделя</option>
+                        <option value="month">Месяц</option>
+                    </select>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="statChart" width="800" height="300"></canvas>
+            </div>
+            <div class="products-summary-block">
+                <h3>Общая статистика по товарам</h3>
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <div class="summary-label">Всего товаров</div>
+                        <div class="summary-value" id="total-products">0</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label">Суммарный доход</div>
+                        <div class="summary-value" id="total-income-all-products">0 ₽</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label">Всего заказов</div>
+                        <div class="summary-value" id="total-orders-all-products">0</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label">Самый прибыльный товар</div>
+                        <div class="summary-value" id="most-profitable-product">-</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label">Самый популярный товар</div>
+                        <div class="summary-value" id="most-popular-product">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stat-tab-content" id="tab-categories" style="display:none;">
+            <h3>Статистика по категориям товаров</h3>
+            <div class="table-scroll-x">
+                <table class="categories-table" id="categories-stat-table">
+                    <thead>
+                        <tr>
+                            <th>Категория</th>
+                            <th>Доход</th>
+                            <th>Заказов</th>
+                            <th>Товаров</th>
+                            <th>Средний доход/товар</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categories-stat-tbody">
+                        <!-- JS заполнит строки -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="stat-tab-content" id="tab-products" style="display:none;">
+            <h3>Статистика по товарам</h3>
+            <div class="table-scroll-x">
+                <table class="products-table" id="products-stat-table">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Категория</th>
+                            <th>Доход</th>
+                            <th>Заказов</th>
+                            <th>Офисных заказов</th>
+                            <th>Постамат заказов</th>
+                            <th>Возвраты</th>
+                            <th>Активные</th>
+                            <th>Среднее время аренды (ч)</th>
+                            <th>Доход/час</th>
+                            <th>Рейтинг</th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-stat-tbody">
+                        <!-- JS заполнит строки -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', path='owner/js/owner_statistic.js') }}"></script>
+{% endblock %}

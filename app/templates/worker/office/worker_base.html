@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKKU-BATT-RENT</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='worker/style/worker_base_style.css') }}">
+    <link rel="icon" href="{{ url_for('static', path='img/favicon.ico') }}" type="image/x-icon">
+    {% block head_extra %}{% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', path='worker/style/media.css') }}">
+    <script src="{{ url_for('static', path='worker/js/nav_mobile.js') }}"></script>
+</head>
+<body>
+<main>
+    <nav>
+        <div class="nav">
+            <img src="{{ url_for('static', path='img/logo.png') }}" alt="" class="logo">
+            <div class="container">
+                <ul id="first">
+                    <li><a href="{{ url_for('worker_office_orders') }}">Офисные заказы</a></li>
+                    <li><a href="{{ url_for('worker_office_returns') }}">Офисные возвраты</a></li>
+                    <li><a href="{{ url_for('worker_offices') }}">Офисы</a></li>
+                </ul>
+            </div>
+            <hr>
+            <div class="container" id="second">
+                <ul>
+                    <li><a href="{{ url_for('worker_products') }}">Товары</a></li>
+                </ul>
+            </div>
+        </div>
+        <button type="button" class="exit" onclick="window.location.href='{{ url_for('logout') }}'">Выход</button>
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+</body>
+</html>

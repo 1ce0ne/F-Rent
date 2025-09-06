@@ -1,0 +1,116 @@
+{% extends "admin/senior/senior_admin_base.html" %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', path='admin/senior/style/senior_workers_style.css') }}">
+<script src="{{ url_for('static', path='admin/senior/js/senior_workers_js.js') }}"></script>
+{% endblock %}
+{% block title %}Работники - Senior Admin Panel{% endblock %}
+{% block content %}
+<div class="search">
+    <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+    <input type="search" id="search" placeholder="Поиск по имени">
+    <button onClick="loadWorkers();" class="reload"><img src="{{ url_for('static', path='img/reload.png') }}"
+                                                         alt="Reload" height="30px"></button>
+</div>
+
+<div class="postamts workers">
+    <h1>Работники</h1>
+    <button class="add" id="add-worker-btn" style="margin-bottom:20px;">Добавить работника</button>
+    <div class="table">
+        <div class="table-head">
+            <p id="head1">Имя</p>
+            <p id="head2">Должность</p>
+            <p id="head3">Привязанные офисы</p>
+            <p id="head4">ID</p>
+            <p id="head5">Действия</p>
+        </div>
+        <div class="table-scroll" id="workers-container">
+            {% for worker in workers %}
+            <div class="scroll-item">
+                <p>{{ worker.name }}</p>
+                <p>{{ worker.position }}</p>
+                <p id="worker-offices-{{ worker.id }}">Загрузка...</p>
+                <p>{{ worker.id }}</p>
+                <button class="more" onclick="showWorkerDetails({{ worker.id }})">Подробнее</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<dialog class="worker-dialog" id="worker-dialog">
+    <div class="dialog-content">
+        <button class="closedio">X</button>
+        <h2>Информация о работнике</h2>
+        <div class="worker-details">
+            <p><strong>Имя:</strong> <span id="worker-name"></span></p>
+            <p><strong>Должность:</strong> <span id="worker-position"></span></p>
+            <p><strong>Номер телефона:</strong> <span id="worker-phone"></span></p>
+            <p><strong>Telegram:</strong> <span id="worker-telegram"></span></p>
+            <p><strong>2FA статус:</strong> <span id="worker-2fa-status"></span></p>
+
+            <!-- Секция управления офисами -->
+            <div class="office-assignments">
+                <h3>Привязанные офисы</h3>
+                <div id="worker-office-list"></div>
+                <button class="more confs" id="assign-office-btn">Привязать к офису</button>
+            </div>
+
+            <div class="worker-actions">
+                <button class="more confs" id="edit-worker-btn">Изменить</button>
+                <button class="more confs" id="toggle-2fa-btn">Переключить 2FA</button>
+                <button class="more confs red" id="delete-worker-btn">Удалить</button>
+            </div>
+        </div>
+        <!-- Форма для редактирования -->
+        <form id="edit-worker-form" style="display:none; margin-top:20px;">
+            <label class="worker-label">Новое имя:<br><input type="text" id="edit-worker-name" required></label><br>
+            <label class="worker-label">Новый пароль:<br><input type="password" id="edit-worker-password"></label><br>
+            <label class="worker-label">Номер телефона:<br><input type="tel" id="edit-worker-phone" placeholder="+7XXXXXXXXXX"></label><br>
+            <label class="worker-label">Telegram username:<br><input type="text" id="edit-worker-telegram" placeholder="username без @"></label><br>
+            <label class="worker-label">Роль:<br>
+                <select id="edit-worker-role">
+                    <option value="office_worker">Офисный работник</option>
+                    <option value="postamat_worker">Работник постамата</option>
+                    <option value="junior_admin">Младший администратор</option>
+                    <option value="senior_admin">Старший администратор</option>
+                </select>
+            </label><br>
+            <button type="submit" class="more confs">Сохранить</button>
+            <button type="button" class="more" id="cancel-edit-worker">Отмена</button>
+        </form>
+    </div>
+</dialog>
+
+<!-- Диалог привязки к офису -->
+<dialog class="office-assign-dialog" id="office-assign-dialog">
+    <div class="dialog-content">
+        <button class="closedio" id="close-office-assign">X</button>
+        <h2>Привязать работника к офису</h2>
+        <div id="available-offices-list">
+            <p>Загрузка доступных офисов...</p>
+        </div>
+    </div>
+</dialog>
+
+<dialog class="worker-add-dialog" id="worker-add-dialog">
+    <div class="dialog-content">
+        <button class="closedio" id="close-add-worker">X</button>
+        <h2>Добавить работника</h2>
+        <form id="add-worker-form">
+            <label>Имя работника:<br><input type="text" id="add-worker-name" required></label><br>
+            <label>Пароль:<br><input type="password" id="add-worker-password" required></label><br>
+            <label>Номер телефона:<br><input type="tel" id="add-worker-phone" placeholder="+7XXXXXXXXXX"></label><br>
+            <label>Роль:<br>
+                <select id="add-worker-role" required>
+                    <option value="office_worker">Офисный работник</option>
+                    <option value="postamat_worker">Работник постамата</option>
+                    <option value="junior_admin">Младший администратор</option>
+                </select>
+            </label><br>
+            <button type="submit" class="more confs">Добавить</button>
+        </form>
+    </div>
+</dialog>
+
+{% endblock %}

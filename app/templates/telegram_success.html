@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат авторизации Telegram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .result-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success-icon {
+            font-size: 48px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .error-icon {
+            font-size: 48px;
+            color: #f44336;
+            margin-bottom: 20px;
+        }
+        .title {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .user-info {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .close-button {
+            background: #2196F3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .close-button:hover {
+            background: #1976D2;
+        }
+        .error-message {
+            color: #f44336;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        {% if success %}
+            <div class="success-icon">✅</div>
+            <h2 class="title">Авторизация успешна!</h2>
+
+            {% if telegram_data %}
+            <div class="user-info">
+                <h3>Информация о пользователе:</h3>
+                <p><strong>ID:</strong> {{ telegram_data.id }}</p>
+                {% if telegram_data.first_name %}
+                <p><strong>Имя:</strong> {{ telegram_data.first_name }}</p>
+                {% endif %}
+                {% if telegram_data.last_name %}
+                <p><strong>Фамилия:</strong> {{ telegram_data.last_name }}</p>
+                {% endif %}
+                {% if telegram_data.username %}
+                <p><strong>Username:</strong> @{{ telegram_data.username }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <p>Telegram аккаунт успешно привязан к вашему профилю.</p>
+
+        {% else %}
+            <div class="error-icon">❌</div>
+            <h2 class="title">Ошибка авторизации</h2>
+
+            {% if error %}
+            <div class="error-message">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <p>Не удалось выполнить авторизацию через Telegram. Попробуйте еще раз.</p>
+        {% endif %}
+
+        <button class="close-button" onclick="closeWindow()">Закрыть</button>
+    </div>
+
+    <script>
+        function closeWindow() {
+            // Попытка закрыть окно
+            if (window.opener) {
+                window.close();
+            } else {
+                // Если окно нельзя закрыть, перенаправляем на главную страницу
+                window.location.href = '/';
+            }
+        }
+
+        // Автоматически закрыть окно через 5 секунд при успешной авторизации
+        {% if success %}
+        setTimeout(function() {
+            closeWindow();
+        }, 5000);
+        {% endif %}
+    </script>
+</body>
+</html>

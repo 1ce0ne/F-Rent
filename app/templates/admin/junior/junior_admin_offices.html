@@ -1,0 +1,104 @@
+{% extends "admin/junior/junior_admin_base.html" %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', path='admin/junior/style/junior_offices_style.css') }}">
+<script src="{{ url_for('static', path='admin/junior/js/junior_offices_js.js') }}"></script>
+{% endblock %}
+{% block title %}Офисы{% endblock %}
+
+
+
+{% block content %}
+<div class="search">
+    <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+    <input type="search" name="" id="search" placeholder="Поиск по адресу">
+    <button onClick="window.location.reload();" class="reload">
+        <img src="{{ url_for('static', path='img/reload.png') }}" alt="" height="30px">
+    </button>
+</div>
+<div class="postamts">
+    <h1>Офисы</h1>
+    <div class="table noBtn">
+        <div class="table-head">
+            <p id="head1">Адрес офиса</p>
+            <p id="head2">Координаты</p>
+            <p id="head3">ID</p>
+        </div>
+        <div class="table-scroll">
+            {% for office in offices %}
+            <div class="scroll-item">
+                <p id="head1">{{ office.address }}</p>
+                <p id="head2">{{ office.first_coordinate }}</p>
+                <p id="head3">{{ office.second_coordinate }}</p>
+                <button class="more" id="more-{{ office.id }}">Подробнее</button>
+            </div>
+            <div class="postamt-more" id="office-{{ office.id }}" style="display: none;">
+                <div class="cells" id="cells-{{ office.id }}"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<dialog class="fordio" id="cell-dialog">
+    <div class="cell-info">
+        <button class="closedio">X</button>
+        <div class="cell-content">
+
+            <div id="product-info" >
+                <div class="img-and-describe">
+                    <div class="img" id="cell-product-image"></div>
+                    <div class="describe">
+                        <h1 id="cell-product-name"></h1>
+                        <div class="p-container">
+                            <p class="p" id="cell-product-description"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricement">
+                    <div class="per-x">
+                        <p>Цена за час</p>
+                        <p id="cell-price-hour"></p>
+                    </div>
+                    <div class="per-x">
+                        <p>Цена за день</p>
+                        <p id="cell-price-day"></p>
+                    </div>
+                    <div class="per-x">
+                        <p>Цена за месяц</p>
+                        <p id="cell-price-month"></p>
+                    </div>
+                </div>
+                <button class="more confs red" id="remove-product-btn">Убрать товар</button>
+            </div>
+            <div id="empty-cell" style="display: none;">
+                <p>Ячейка пуста</p>
+                <button class="more confs" id="add-product-btn">Добавить товар</button>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<dialog class="product-dialog" id="add-product-dialog">
+    <div class="product-info">
+        <button class="closedio">X</button>
+        <h2>Выберите товар</h2>
+        <div class="search-container">
+            <input type="text" id="product-search" placeholder="Поиск по названию или ID...">
+            <button id="search-btn">Найти</button>
+        </div>
+        <div class="products-table">
+            <div class="table-head large">
+                <p>ID</p>
+                <p>Название</p>
+                <p>Категория</p>
+                <p>Цена/час</p>
+                <p>Выбрать</p>
+            </div>
+            <div class="table-scroll" id="product-search-results">
+                <!-- Товары будут загружены здесь -->
+            </div>
+        </div>
+    </div>
+</dialog>
+
+{% endblock %}

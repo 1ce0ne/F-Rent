@@ -1,0 +1,159 @@
+{% extends "owner/owner_base.html" %}
+{% block head_extra %}
+    <script src="{{ url_for('static', path='owner/js/owner_offices_js.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', path='owner/style/owner_offices_style.css') }}">
+{% endblock %}
+{% block title %}Офисы - Owner Panel{% endblock %}
+
+
+{% block content %}
+    <div class="search">
+        <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+        <input type="search" name="" id="search" placeholder="Поиск по адресу">
+        <button onClick="window.location.reload();" class="reload">
+            <img src="{{ url_for('static', path='img/reload.png') }}" alt="" height="30px">
+        </button>
+    </div>
+
+    <div class="postamts">
+        <h1>Офисы</h1>
+        <button class="add" id="add-office-btn">+ Добавить офис</button>
+        <div class="table">
+            <div class="table-head">
+                <p id="head1">Адрес</p>
+                <p id="head2">Широта</p>
+                <p id="head3">Долгота</p>
+            </div>
+            <div class="table-scroll">
+                {% for office in offices %}
+                    <div class="scroll-item">
+                        <p id="head1">{{ office.address }}</p>
+                        <p id="head2">{{ office.first_coordinate or 'N/A' }}</p>
+                        <p id="head3">{{ office.second_coordinate or 'N/A' }}</p>
+                        <button class="more" id="more-{{ office.id }}">Подробнее</button>
+                    </div>
+                    <div class="postamt-more" id="office-{{ office.id }}" style="display: none;">
+                        <div class="office-details-layout">
+                            <div class="cells" id="cells-{{ office.id }}">
+
+                            </div>
+                            <div class="office-actions">
+                                <button class="more confs edit-office-btn" data-id="{{ office.id }}">Изменить офис
+                                </button>
+                                <button class="more confs red delete-office-btn" data-id="{{ office.id }}">Удалить
+                                    офис
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <dialog class="add-office-dialog" id="add-office-dialog">
+        <div class="dialog-content">
+            <button class="closedio">X</button>
+            <h2>Добавить новый офис</h2>
+            <form id="add-office-form">
+                <div class="form-group">
+                    <label for="new-office-address">Адрес:</label>
+                    <input type="text" id="new-office-address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-office-latitude">Широта:</label>
+                    <input type="text" id="new-office-latitude" name="latitude" required pattern="-?\d+(\.\d+)?"
+                           title="Введите числовое значение (например: 55.7558)">
+                </div>
+                <div class="form-group">
+                    <label for="new-office-longitude">Долгота:</label>
+                    <input type="text" id="new-office-longitude" name="longitude" required pattern="-?\d+(\.\d+)?"
+                           title="Введите числовое значение (например: 37.6173)">
+                </div>
+                <button type="submit" class="more confs">Добавить офис</button>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- Диалог изменения офиса стилизован как add-office-dialog -->
+    <dialog class="add-office-dialog" id="edit-office-dialog">
+        <div class="dialog-content">
+            <button class="closedio" type="button" onclick="this.closest('dialog').close()">X</button>
+            <h2>Изменить офис</h2>
+            <form id="edit-office-form">
+                <input type="hidden" id="edit-office-id" name="office_id">
+                <div class="form-group">
+                    <label for="edit-office-address">Адрес:</label>
+                    <input type="text" id="edit-office-address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-office-latitude">Широта:</label>
+                    <input type="text" id="edit-office-latitude" name="latitude" required pattern="-?\d+(\.\d+)?"
+                           title="Введите числовое значение (например: 55.7558)">
+                </div>
+                <div class="form-group">
+                    <label for="edit-office-longitude">Долгота:</label>
+                    <input type="text" id="edit-office-longitude" name="longitude" required pattern="-?\d+(\.\d+)?"
+                           title="Введите числовое значение (например: 37.6173)">
+                </div>
+                <button type="submit" class="more confs">Сохранить изменения</button>
+            </form>
+        </div>
+    </dialog>
+
+    <dialog id="cell-dialog" class="fordio">
+        <button class="closedio">X</button>
+        <div id="product-info" style="display: none;">
+            <div class="product-info">
+                <div class="img-and-describe">
+                    <div id="cell-product-image" class="img"></div>
+                    <div class="describe">
+                        <h3 id="cell-product-name">Название товара</h3>
+                        <p id="cell-product-description" class="p">Описание...</p>
+                    </div>
+                </div>
+                <div class="infotext">
+                    <div class="pricement">
+                        <p><span id="cell-price-hour">--</span>/час</p>
+                        <p><span id="cell-price-day">--</span>/день</p>
+                        <p><span id="cell-price-month">--</span>/месяц</p>
+                    </div>
+                </div>
+                <div class="product-dialog-actions" id="cell-product-actions">
+                    <button class="more confs edit-product-btn" id="cell-edit-product-btn">Изменить товар</button>
+                    <button class="more confs red delete-product-btn" id="remove-product-btn">Убрать товар</button>
+                    <button class="more confs history-btn" id="cell-history-btn">История заказов</button>
+                </div>
+            </div>
+        </div>
+        <div id="empty-cell" style="display: none;">
+            <p>Ячейка пуста.</p>
+            <button id="add-product-btn" class="more confs green" style="background-color: var(--green);">Добавить
+                товар
+            </button>
+        </div>
+    </dialog>
+
+    <dialog id="add-product-dialog" class="fordio" >
+        <button class="closedio">X</button>
+        <h2>Выберите товар для добавления</h2>
+        <div class="search">
+            <input type="search" id="product-search" placeholder="Поиск по названию...">
+            <button id="search-btn" class="reload" type="button">
+                <img src="{{ url_for('static', path='img/reload.png') }}" alt="Search" height="30px">
+            </button>
+        </div>
+        <div id="product-search-results" class="table-scroll" style="height: 300px; margin-top: 10px;">
+        </div>
+    </dialog>
+
+    <dialog class="product-history-dialog" id="product-history-dialog">
+        <div class="dialog-content">
+            <button class="closedio" type="button">X</button>
+            <h2>История заказов товара</h2>
+            <div id="product-history-content">
+                <div class="loading-history" style="text-align:center; margin: 30px 0;">Загрузка...</div>
+            </div>
+        </div>
+    </dialog>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "worker/office/worker_base.html" %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', path='worker/style/worker_office_products_style.css') }}">
+<script src="{{ url_for('static', path='worker/js/worker_office_products_js.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="search">
+        <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+        <input type="search" name="" id="search" placeholder="Поиск по адресу">
+        <button onClick="window.location.reload();" class="reload">
+            <img src="{{ url_for('static', path='img/reload.png') }}" alt="" height="30px">
+        </button>
+    </div>
+<div class="postamts">
+    <h1>Товары</h1>
+    <div class="table noBtn">
+        <div class="table-head">
+            <p id="head11">Название товара</p>
+            <p id="head21">Категория</p>
+            <p id="head31">ID</p>
+            <p id="head41">Действия</p>
+        </div>
+        <div class="table-scroll">
+            {% for product in products %}
+            <div class="scroll-item">
+                <p id="head1-conf1">{{ product.name }}</p>
+                <p id="head2-conf1">{{ product.category if product.category else 'Без категории' }}</p>
+                <p id="head3-conf1">{{ product.id }}</p>
+                <div class="actions">
+                    <button class="more confs" onclick="showProductDialog({{ product.id }})">Подробнее</button>
+                </div>
+                <dialog class="product" id="dialog-{{ product.id }}">
+                    <div class="product-info">
+                        <button class="closedio">X</button>
+                        <div class="infotext">
+                            <div class="img-and-describe">
+                                <div class="img"
+                                     id="product-image-{{ product.id }}"
+                                     style="background-image: url({{ url_for('static', path='img/placeholder.jpg') }});">
+                                </div>
+                                <div class="describe">
+                                    <h1>{{ product.name }}</h1>
+                                    <div class="p-container">
+                                        <p class="p">{{ product.description if product.description else 'Описание
+                                            отсутствует' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pricement">
+                                <div class="per-x">
+                                    <p>Цена за час</p>
+                                    <p>{{ product.price_per_hour }}₽</p>
+                                </div>
+                                <div class="per-x">
+                                    <p>Цена за день</p>
+                                    <p>{{ product.price_per_day }}₽</p>
+                                </div>
+                                <div class="per-x">
+                                    <p>Цена за месяц</p>
+                                    <p>{{ product.price_per_month }}₽</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </dialog>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

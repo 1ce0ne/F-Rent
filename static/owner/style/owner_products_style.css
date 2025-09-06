@@ -1,0 +1,324 @@
+.confs {
+    width: 15%;
+    height: 65%;
+    margin-right: 20px;
+}
+
+#head1-conf1 {
+    margin-left: 1%;
+    width: 27%;
+}
+
+#head2-conf1 {
+    width: 27%;
+}
+
+#head3-conf1 {
+    width: 20%;
+}
+
+
+#head11 {
+    margin-left: 1%;
+    width: 27%;
+}
+
+#head21 {
+    width: 27%;
+}
+#head31{
+    width: 20%;
+}
+.more {
+    height: 70%;
+    width: 70%;
+    background-color: var(--blue);
+    color: white;
+    border: 3px var(--grey);
+    border-radius: 0.3em;
+    box-shadow: 2px 2px 5px 1px var(--grey);
+}
+.actions {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    width: 25%;
+}
+.more:hover, .add:hover, .ord:hover {
+    background-color: var(--darkblue);
+}
+
+.more:active, .add:active, .ord:active {
+    transform: scale(0.98);
+}
+.product {
+    width: 60%;
+    max-width: 700px;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid var(--grey);
+}
+.infotext {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.product-info {
+    border: 1px solid transparent;
+
+    width: 98%;
+    height: 93%;
+    border-radius: 24px;
+    padding-top: 2%;
+}
+
+.img-and-describe {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.img {
+    border: 1px solid transparent;
+    border-radius: 25px;
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.describe {
+    width: 65%;
+    height: 90%;
+}
+.p {
+    height: 80%;
+    width: 100%;
+    white-space: normal;
+}
+.pricement {
+    width: 65%;
+    height: 25%;
+    border: 1px solid var(--grey);
+    border-radius: 10px;
+    box-shadow: 2px 2px 9px 1px var(--grey);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+.per-x {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}/* файл пустой, как и senior_products_style.css */
+
+/* Стили для диалога добавления товара, аналогично add-office-dialog */
+.add-office-dialog {
+    width: 50%;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid var(--grey);
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+.add-office-dialog .dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.add-office-dialog h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: var(--blue);
+}
+.add-office-dialog .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.add-office-dialog label {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.add-office-dialog input,
+.add-office-dialog textarea,
+.add-office-dialog select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--grey);
+    font-size: 1em;
+}
+.add-office-dialog .more.confs {
+    background-color: var(--green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px 1px var(--grey);
+    margin-top: 10px;
+}
+.add-office-dialog .more.confs:hover {
+    background-color: var(--darkgreen);
+}
+.add-office-dialog .closedio {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.add {
+    height: 5%;
+    width: 15%;
+    background-color: var(--blue);
+    color: white;
+    border: 1px solid var(--grey);
+    border-radius: 0.3em;
+    box-shadow: 2px 2px 5px 1px var(--grey);
+    margin-bottom: 18px;
+    cursor: pointer;
+
+}
+
+.add:hover {
+    background-color: var(--darkblue);
+}
+
+.add:active {
+    transform: scale(0.98);
+}
+.red {
+    background-color: red;
+}
+
+.red:hover {
+    background-color: rgb(167, 0, 0);
+}
+
+/* --- Стили для диалога истории заказов --- */
+.product-history-dialog {
+    width: 50vw;
+    min-width: 400px;
+    max-width: 900px;
+    height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 0;
+    background: #fff;
+    border: none;
+    z-index: 1002;
+}
+.product-history-dialog .dialog-content {
+    width: 100%;
+    height: 100%;
+    padding: 32px 28px 24px 28px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.product-history-dialog h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #222;
+}
+.order-history-block {
+    background: #f8f8fa;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    padding: 14px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.order-history-block b {
+    color: #444;
+}
+.order-history-block .order-status {
+    font-weight: bold;
+    color: #888;
+    font-size: 0.98em;
+}
+.order-history-block .photos-block {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.order-history-block .photos-block img {
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 4px;
+    background: #fff;
+}
+.order-history-block .photos-block div {
+    text-align: center;
+    font-size: 0.92em;
+    color: #666;
+}
+.loading-history, .error-history {
+    color: #888;
+    font-size: 1.1em;
+    margin: 30px 0;
+}
+.product-history-dialog .closedio {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    background: #eee;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.product-history-dialog .closedio:hover {
+    background: #e33;
+    color: #fff;
+}
+.product-dialog-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+.product-dialog-actions .more {
+    margin-right: 0;
+}
+@media (max-width: 600px) {
+    .product-history-dialog .dialog-content {
+        padding: 16px 6px 12px 6px;
+        min-width: 0;
+        max-width: 98vw;
+    }
+    .order-history-block {
+        padding: 8px 4px;
+    }
+}
+
+.delete-product-btn{
+    height: 33px;
+}

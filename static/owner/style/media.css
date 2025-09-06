@@ -1,0 +1,257 @@
+@media screen and (max-width: 1450px) {
+    #search {
+        width: 80%;
+    }
+
+    .postamts {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #search {
+        width: 88%;
+    }
+
+    .postamts {
+        width: 95%;
+    }
+
+    .add {
+        width: 30%;
+    }
+
+
+
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+    .worker-dialog{
+        width: 70%;
+        height: 50%;
+    }
+    .logo {
+        margin-bottom: 0;
+        margin-top: 0;
+
+    }
+    #search{
+        margin-left: 2%;
+        width: 85%;
+    }
+
+    nav {
+        width: 60%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 60px;
+        border-right: none;
+        border-bottom: 0.05em solid var(--grey);
+        z-index: 1000;
+        padding: 0 10px;
+        height: 91.7%;
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2em;
+        cursor: pointer;
+        color: var(--grey);
+    }
+
+    li {
+        height: 40px;
+    }
+
+    .content{
+        width: 100%;
+    }
+
+    .add-office-dialog{
+        width: 80%;
+    }
+    .add-office-dialog .more{
+        width: 100%;
+    }
+    .product{
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width: 600px){
+    .content{
+        width: 150%;
+        height: 100%;
+    }
+
+}
+
+
+
+@media screen and (max-width: 600px){
+    .postamt-more {
+        width: 95%;
+    }
+
+}
+
+@media screen and (max-width: 900px){
+    .fordio{
+        width: 75%;
+        height: 60%;
+    }
+    .user-dialog, .edit-user-dialog{
+        width: 80%;
+        height: 70%;
+    }
+    .dialog-content{
+        height: 100%;
+    }
+    .statistics-container {
+        padding: 18px 2vw 18px 2vw;
+        max-width: 99vw;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    .stats-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+    }
+    .stat-block, .income-block {
+        width: 98%;
+        box-sizing: border-box;
+        padding: 18px 2vw;
+        margin: 0 auto 10px auto;
+    }
+    .chart-container {
+        padding: 8px 0 8px 0;
+        max-width: 99vw;
+        min-width: 0;
+    }
+
+    .statistics-outer-center {
+        padding: 0;
+        margin: 0;
+    }
+    .statistics-container h2 {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .stat-block, .income-block {
+        font-size: 0.95em;
+        padding: 12px 1vw;
+    }
+    .statistics-container {
+        padding: 8px 0 8px 0;
+    }
+    .chart-container {
+        padding: 2px 0 2px 0;
+    }
+}
+
+@media screen and (max-width: 2000px) and (max-height: 800px){
+    li{
+        height: 40px;
+    }
+    .table-head, .scroll-item{
+        height: 8%;
+    }
+    .add{
+        height: 7%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 2000px) and (max-height: 600px){
+    li{
+        height: 40px;
+    }
+    .table-head, .scroll-item{
+        height: 10%;
+    }
+    .add{
+        height: 7%;
+        margin-top: 1%;
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 2000px) and (max-height: 550px){
+    html{
+
+        height: 150%;
+    }
+
+
+}
+
+@media screen and (max-width: 2000px) and (max-height: 430px){
+    html{
+        height: 170%;
+    }
+}
+
+@media screen and (max-width: 2000px) and (max-height: 370px){
+    html{
+        height: 200%;
+    }
+}
+
+@media screen and (max-width: 800px) and (max-height: 650px){
+    .logo{
+        width: 40%;
+    }
+    .nav{
+        height: 150%;
+        overflow-y: auto;
+    }
+    .exit{
+        height: 50px;
+    }
+}
+
+@media screen and (max-height: 620px){
+    body{
+        height: 150%;
+
+    }
+}
+@media screen and (max-height: 550px){
+    body{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .workers{
+        width: 98%;
+    }
+}
+@media screen and (max-height: 850px){
+    .table-head, .scroll-item{
+        height: 10%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .content{
+        width: 170%;
+        height: 100%;
+    }
+
+}

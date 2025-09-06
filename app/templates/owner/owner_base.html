@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='owner/style/owner_base_style.css') }}">
+    <link rel="icon" href="{{ url_for('static', path='img/favicon.ico') }}" type="image/x-icon">
+    {% block head_extra %}{% endblock %} {# Для дополнительных стилей/скриптов в head #}
+    <link rel="stylesheet" href="{{ url_for('static', path='owner/style/media.css') }}">
+    <script src="{{ url_for('static', path='owner/js/nav_mobile.js') }}"></script>
+</head>
+<body>
+    <main>
+        <nav>
+            <div class="nav">
+                <img src="{{ url_for('static', path='img/logo.png') }}" alt="" class="logo">
+                <div class="container">
+                    <ul id="first">
+                        <li><a href="{{ url_for('owner_postamats') }}">Постаматы</a></li>
+                        <li><a href="{{ url_for('owner_offices') }}">Офисы</a></li>
+                        <li><a href="{{ url_for('owner_products') }}">Товары</a></li>
+                        <li><a href="{{ url_for('owner_statistics') }}">Статистика</a></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="container" id="second">
+                    <ul>
+                        <li><a href="{{ url_for('owner_users') }}">Пользователи</a></li>
+                        <li><a href="{{ url_for('owner_workers') }}">Работники</a></li>
+                        <li><a href="{{ url_for('owner_orders') }}">Заказы</a></li>
+                        <li><a href="{{ url_for('owner_returns') }}">Возвраты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <button type="button" class="exit" onclick="window.location.href='{{ url_for('logout') }}'">Выход</button>
+        </nav>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+</body>
+</html>
+

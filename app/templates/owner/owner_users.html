@@ -1,0 +1,100 @@
+{% extends "owner/owner_base.html" %}
+{% block title %}Пользователи - Owner Panel{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', path='owner/style/owner_users_style.css') }}">
+<script src="{{ url_for('static', path='owner/js/owner_users_js.js') }}"></script>
+{% endblock %}
+{% block content %}
+<div class="search">
+    <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+    <input type="search" id="search" placeholder="Поиск по имени или телефону">
+    <button onClick="loadUsers();" class="reload"><img src="{{ url_for('static', path='img/reload.png') }}"
+                                                       alt="Reload" height="30px"></button>
+</div>
+
+<div class="postamts users">
+    <h1>Пользователи</h1>
+    <div class="table noBtn">
+        <div class="table-head">
+            <p id="head1">Имя пользователя</p>
+            <p id="head2">Номер телефона</p>
+            <p id="head4">Роль</p>
+            <p id="head5">Действия</p>
+        </div>
+        <div class="table-scroll" id="users-container">
+            <!-- Users will be loaded here dynamically -->
+        </div>
+    </div>
+</div>
+
+<dialog class="user-dialog" id="user-dialog">
+    <div class="dialog-content">
+        <button class="closedio">X</button>
+        <h2>Информация о пользователе</h2>
+        <div class="user-details-content">
+            <div class="detail-item">
+                <p><strong>Имя:</strong></p>
+                <p id="user-detail-name">Загрузка...</p>
+            </div>
+            <div class="detail-item">
+                <p><strong>Телефон:</strong></p>
+                <p id="user-detail-phone">Загрузка...</p>
+            </div>
+            <div class="detail-item">
+                <p><strong>Роль:</strong></p>
+                <p id="user-detail-role">Загрузка...</p>
+            </div>
+            <div class="detail-item">
+                <p><strong>Бан:</strong></p>
+                <p id="user-detail-ban">-</p>
+            </div>
+            <div class="user-actions">
+                <button id="ban-user-btn" class="ban-btn">Забанить</button>
+                <button class="more confs green" id="edit-user-btn">Изменить</button>
+                <button class="more confs red" id="delete-user-btn">Удалить</button>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<!-- Модальное окно для изменения пользователя -->
+<dialog class="edit-user-dialog" id="edit-user-dialog">
+    <div class="dialog-content">
+        <button class="closedio" type="button" onclick="this.closest('dialog').close()">X</button>
+        <h2>Изменить пользователя</h2>
+        <form id="edit-user-form">
+            <input type="hidden" id="edit-user-id" name="user_id">
+            <div class="form-group">
+                <label for="edit-user-name">Имя:</label>
+                <input type="text" id="edit-user-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-user-phone">Телефон:</label>
+                <input type="text" id="edit-user-phone" name="phone_number" required pattern="^\+?\d{10,15}$"
+                       title="Введите корректный номер телефона">
+            </div>
+            <button type="submit" class="more confs">Сохранить изменения</button>
+        </form>
+    </div>
+</dialog>
+
+<dialog class="ban-dialog" id="ban-dialog">
+    <div class="dialog-content">
+        <button class="closedio">X</button>
+        <h2>Бан пользователя</h2>
+        <form id="ban-user-form">
+            <div class="form-group">
+                <label for="ban-reason">Причина бана:</label>
+                <select id="ban-reason" name="ban-reason" required>
+                    <option value="">Загрузка...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Период бана:</label>
+                <span id="ban-period-label">-</span>
+            </div>
+            <button type="submit" class="ban-confirm-btn">Забанить</button>
+        </form>
+    </div>
+</dialog>
+{% endblock %}

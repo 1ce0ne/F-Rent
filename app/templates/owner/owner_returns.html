@@ -1,0 +1,50 @@
+{% extends "owner/owner_base.html" %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="{{ url_for('static', path='owner/style/owner_returns_style.css') }}">
+    <script src="{{ url_for('static', path='owner/js/owner_returns_js.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="search">
+        <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+        <input type="search" name="" id="search" placeholder="Поиск по товару">
+        <button onClick="window.location.reload();" class="reload">
+            <img src="{{ url_for('static', path='img/reload.png') }}" alt="" height="30px">
+        </button>
+    </div>
+    <div class="postamts">
+        <h1>Офисные возвраты</h1>
+        <div class="table noBtn">
+            <div class="table-head">
+                <p id="head1-conf1">Имя Фамилия</p>
+                <p id="head2-conf1">Номер телефона</p>
+                <p id="head3-conf1">Название Товара</p>
+                <p id="head4-conf1">Адрес офиса</p>
+                <p id="head6-conf1">Действия</p>
+            </div>
+            <div class="table-scroll" id="returns-container">
+                <!-- Возвраты будут загружаться здесь через JavaScript -->
+            </div>
+        </div>
+    </div>
+    <!-- Диалог подтверждения возврата -->
+    <dialog id="accept-return-dialog">
+        <form method="dialog" id="accept-return-form" style="min-width:320px;max-width:400px;padding:24px;">
+            <button type="button" id="close-accept-return-dialog" style="float:right;">✕</button>
+            <h2 style="margin-bottom:18px;">Подтвердить возврат</h2>
+            <input type="hidden" id="accept-return-order-id">
+            <div style="margin-bottom:14px;">
+                <label>
+                    <input type="checkbox" id="accept-return-have-problem">
+                    Есть проблема с товаром
+                </label>
+            </div>
+            <div style="margin-bottom:14px;">
+                <label for="accept-return-comment">Комментарий:</label>
+                <textarea id="accept-return-comment" rows="3" style="width:100%;"></textarea>
+            </div>
+            <button type="submit" id="accept-return-submit" class="more confs" style="width:100%;margin-top:10px;">Принять возврат</button>
+        </form>
+    </dialog>
+{% endblock %}

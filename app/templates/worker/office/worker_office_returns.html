@@ -1,0 +1,30 @@
+{% extends "worker/office/worker_base.html" %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="{{ url_for('static', path='worker/style/worker_office_returns_style.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="search">
+        <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+        <input type="search" name="" id="search" placeholder="Поиск по товару">
+        <button onClick="window.location.reload();" class="reload">
+            <img src="{{ url_for('static', path='img/reload.png') }}" alt="" height="30px">
+        </button>
+    </div>
+    <div class="postamts">
+        <h1>Офисные возвраты</h1>
+        <div class="table noBtn">
+            <div class="table-head">
+                <p id="head1-conf1">Имя Фамилия</p>
+                <p id="head2-conf1">Номер телефона</p>
+                <p id="head3-conf1">Название Товара</p>
+                <p id="head4-conf1">Адрес офиса</p>
+                <p id="head6-conf1">Действия</p>
+            </div>
+            <div class="table-scroll" id="returns-container">
+                <!-- Возвраты будут загружаться здесь через JavaScript -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

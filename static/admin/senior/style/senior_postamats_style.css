@@ -1,0 +1,27 @@
+.add {
+    height: 5%;
+    width: 15%;
+    background-color: var(--blue);
+    color: white;
+    border: 3px var(--grey);
+    border-radius: 0.3em;
+    box-shadow: 2px 2px 5px 1px var(--grey);
+}
+
+
+#head1 {
+    padding-left: 2%;
+    width: 40%;
+}
+
+#head2 {
+    width: 20%;
+}
+
+#head3 {
+    width: 22%;
+}
+
+#head41 {
+    width: 25%;
+}

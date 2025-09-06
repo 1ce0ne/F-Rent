@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='login/login.css') }}">
+    <title>login</title>
+    <link rel="icon" href="{{ url_for('static', path='img/favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <form method="POST" action="{{ url_for('login') }}" class="form">
+        <img src="{{ url_for('static', path='img/logo.png') }}" alt="" width="40%">
+        <div class="labform">
+            <label for="username">Логин</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div class="labform">
+            <label for="password">Пароль</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        <button type="submit" class="log">Вход</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% extends "worker/office/worker_base.html" %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', path='worker/style/worker_office_order_style.css') }}">
+<script src="{{ url_for('static', path='worker/js/worker_office_order_js.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="search">
+    <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+    <input type="search" name="" id="search" placeholder="Поиск по товару">
+    <button onClick="window.location.reload();" class="reload">
+        <img src="{{ url_for('static', path='img/reload.png') }}" alt="" height="30px">
+    </button>
+</div>
+<div class="postamts">
+    <h1>Офисные заказы</h1>
+
+
+    <div class="table noBtn">
+        <div class="table-head">
+            <p id="head11">Имя пользователя</p>
+            <p id="head21">Номер телефона</p>
+            <p id="head31">Товар</p>
+            <p id="head41">Адрес офиса</p>
+            <p id="head51">Действия</p>
+        </div>
+        <div class="table-scroll" id="orders-container">
+            {% for order, user, product in orders %}
+            <div class="scroll-item" data-order-id="{{ order.order_id }}">
+                <p id="head1-conf1">{{ user.name if user else 'N/A' }}</p>
+                <p id="head2-conf1">{{ user.phone_number if user else 'N/A' }}</p>
+                <p id="head3-conf1">{{ product.name if product else 'N/A' }}</p>
+                <p id="head4-conf1">{{ order.address_office }}</p>
+                <div class="order-actions">
+                    <button class="more confs issue-btn" onclick="issueOrder({{ order.order_id }})">Выдать
+                    </button>
+                    <button class="more confs red decline-btn" onclick="declineOrder({{ order.order_id }})">
+                        Отказ
+                    </button>
+                </div>
+            </div>
+            {% else %}
+            <p style="text-align: center;">Нет активных заказов</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для отображения деталей заказа -->
+<div id="orderDetailsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 class="modal-title">Детали заказа</h2>
+        <div id="orderDetailsContent">
+            <!-- Данные будут загружены динамически -->
+        </div>
+    </div>
+</div>
+{% endblock %}

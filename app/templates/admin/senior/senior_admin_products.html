@@ -1,0 +1,203 @@
+{% extends "admin/senior/senior_admin_base.html" %}
+{% block title %}Товары - Owner Panel{% endblock %}
+
+{% block head_extra %}
+<script src="{{ url_for('static', path='admin/senior/js/senior_products_js.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', path='admin/senior/style/senior_products_style.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<div class="search">
+    <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+    <input type="search" name="" id="search" placeholder="Поиск по товару">
+    <button onClick="window.location.reload();" class="reload">
+        <img src="{{ url_for('static', path='img/reload.png') }}" alt="" height="30px">
+    </button>
+</div>
+<div class="postamts">
+    <h1>Товары</h1>
+    <button class="add" id="add-product-btn">+ Добавить товар</button>
+    <div class="table noBtn">
+        <div class="table-head">
+            <p id="head11">Название товара</p>
+            <p id="head21">Категория</p>
+            <p id="head31">ID</p>
+            <p id="head41">Действия</p>
+        </div>
+        <div class="table-scroll">
+            {% for product in products %}
+            <div class="scroll-item">
+                <p id="head1-conf1">{{ product.name }}</p>
+                <p id="head2-conf1">{{ product.category if product.category else 'Без категории' }}</p>
+                <p id="head3-conf1">{{ product.id }}</p>
+                <div class="actions">
+                    <button class="more confs" onclick="showProductDialog({{ product.id }})">Подробнее</button>
+                </div>
+                <dialog class="product" id="dialog-{{ product.id }}">
+                    <div class="product-info">
+                        <button class="closedio">X</button>
+                        <div class="infotext">
+                            <div class="img-and-describe">
+                                <div class="img"
+                                     id="product-image-{{ product.id }}"
+                                     style="background-image: url({{ url_for('static', path='img/placeholder.jpg') }});">
+                                </div>
+                                <div class="describe">
+                                    <h1 id="product-name-{{ product.id }}">{{ product.name }}</h1>
+                                    <div class="p-container">
+                                        <p class="p" id="product-description-{{ product.id }}">
+                                            <!-- Описание будет подгружено через JS -->
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pricement">
+                                <div class="per-x">
+                                    <p>Цена за час</p>
+                                    <p id="product-hour-{{ product.id }}">{{ product.price_per_hour }}₽</p>
+                                </div>
+                                <div class="per-x">
+                                    <p>Цена за день</p>
+                                    <p id="product-day-{{ product.id }}">{{ product.price_per_day }}₽</p>
+                                </div>
+                                <div class="per-x">
+                                    <p>Цена за месяц</p>
+                                    <p id="product-month-{{ product.id }}">{{ product.price_per_month }}₽</p>
+                                </div>
+                            </div>
+                            <div style="margin-top: 18px; text-align: right;">
+                                <button class="more confs edit-product-btn" data-id="{{ product.id }}">Изменить
+                                    товар
+                                </button>
+                                <button class="more confs red delete-product-btn" data-id="{{ product.id }}">
+                                    Удалить товар
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </dialog>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Диалог добавления товара -->
+<dialog class="add-office-dialog" id="add-product-dialog-form">
+    <div class="dialog-content">
+        <button class="closedio" type="button" onclick="this.closest('dialog').close()">X</button>
+        <h2>Добавить новый товар</h2>
+        <form id="add-product-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="product-name">Название:</label>
+                <input type="text" id="product-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="product-category">Категория:</label>
+                <input type="text" id="product-category" name="category">
+            </div>
+            <div class="form-group">
+                <label for="product-description">Описание:</label>
+                <textarea id="product-description" name="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="product-price-hour">Цена за час:</label>
+                <input type="number" id="product-price-hour" name="price_per_hour" required min="0">
+            </div>
+            <div class="form-group">
+                <label for="product-price-day">Цена за день:</label>
+                <input type="number" id="product-price-day" name="price_per_day" required min="0">
+            </div>
+            <div class="form-group">
+                <label for="product-price-month">Цена за месяц:</label>
+                <input type="number" id="product-price-month" name="price_per_month" required min="0">
+            </div>
+            <div class="form-group">
+                <label for="product-size">Размер:</label>
+                <select id="product-size" name="size" required>
+                    <option value="">Выберите размер</option>
+                    <option value="small">Маленький</option>
+                    <option value="medium">Средний</option>
+                    <option value="large">Большой</option>
+                </select>
+                <div class="size-hint" style="font-size: 0.95em; color: #555; margin-top: 6px;">
+                    <b>Маленький</b> — 27 000 кубических см (30x30x30 и менее)<br>
+                    <b>Средний</b> — 64 000 кубических см (40x40x40 до 50x50x50)<br>
+                    <b>Большой</b> — 125 000 кубических см (50x50x50 и более)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="product-image">Изображение:</label>
+                <input type="file" id="product-image" name="image" accept="image/*">
+            </div>
+            <button type="submit" class="more confs">Добавить товар</button>
+        </form>
+    </div>
+</dialog>
+
+<!-- Диалог изменения товара -->
+<dialog class="add-office-dialog" id="edit-product-dialog-form">
+    <div class="dialog-content">
+        <button class="closedio" type="button" onclick="this.closest('dialog').close()">X</button>
+        <h2>Изменить товар</h2>
+        <form id="edit-product-form">
+            <input type="hidden" id="edit-product-id" name="product_id">
+            <div class="form-group">
+                <label for="edit-product-name">Название:</label>
+                <input type="text" id="edit-product-name" name="name" required>
+            </div>
+             <div class="form-group">
+                <label for="product-category">Категория:</label>
+                <select id="product-category" name="category" required>
+                    <option value="air compressor">Компрессор</option>
+                    <option value="consoles">Игровая консоль</option>
+                    <option value="projectors">Проектор</option>
+                    <option value="vacuum_cleaners">Пылесос</option>
+                    <option value="chainsaw">Бензопила</option>
+                    <option value="construction vacuum cleaner">Строительный пылесос</option>
+                    <option value="grass trimmer">Триммер для травы</option>
+                    <option value="jigsaws">Лобзик</option>
+                    <option value="milling machine">Фрезер</option>
+                    <option value="punchers">Перфоратор</option>
+                    <option value="pressure washer">Мойка высокого давления</option>
+                    <option value="screwdriver">Шуруповёрт</option>
+                    <option value="vintovert">Винтоверт</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit-product-description">Описание:</label>
+                <textarea id="edit-product-description" name="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="edit-product-price-hour">Цена за час:</label>
+                <input type="number" id="edit-product-price-hour" name="price_per_hour" required min="0">
+            </div>
+            <div class="form-group">
+                <label for="edit-product-price-day">Цена за день:</label>
+                <input type="number" id="edit-product-price-day" name="price_per_day" required min="0">
+            </div>
+            <div class="form-group">
+                <label for="edit-product-price-month">Цена за месяц:</label>
+                <input type="number" id="edit-product-price-month" name="price_per_month" required min="0">
+            </div>
+            <div class="form-group">
+                <label for="edit-product-size">Размер:</label>
+                <select id="edit-product-size" name="size" required>
+                    <option value="">Выберите размер</option>
+                    <option value="small">Маленький</option>
+                    <option value="medium">Средний</option>
+                    <option value="large">Большой</option>
+                </select>
+                <div class="size-hint" style="font-size: 0.95em; color: #555; margin-top: 6px;">
+                    <b>Маленький</b> — 27 000 кубических см (30x30x30 и менее)<br>
+                    <b>Средний</b> — 64 000 кубических см (40x40x40 до 50x50x50)<br>
+                    <b>Большой</b> — 125 000 кубических см (50x50x50 и более)
+                </div>
+            </div>
+            <button type="submit" class="more confs">Сохранить изменения</button>
+        </form>
+    </div>
+</dialog>
+{% endblock %}
+

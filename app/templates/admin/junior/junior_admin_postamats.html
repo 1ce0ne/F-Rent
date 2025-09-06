@@ -1,0 +1,65 @@
+{% extends "admin/junior/junior_admin_base.html" %}
+
+{% block title %}Постаматы{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', path='admin/junior/style/junior_postamats_style.css') }}">
+<script src="{{ url_for('static', path='admin/junior/js/junior_postamats_js.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="search">
+    <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+    <input type="search" name="" id="search" placeholder="Поиск по адресу">
+    <button onClick="window.location.reload();" class="reload">
+        <img src="{{ url_for('static', path='img/reload.png') }}" alt="" height="30px"></button>
+</div>
+
+<div class="postamts">
+    <h1>Постаматы</h1>
+    <div class="table noBtn">
+        <div class="table-head">
+            <p id="head1">Адрес</p>
+            <p id="head2">Широта</p>
+            <p id="head3">Долгота</p>
+        </div>
+        <div class="table-scroll">
+            {% for postamat in postmats %}
+            <div class="scroll-item">
+                <p id="head1">{{ postamat.address_of_postamat }}</p>
+                <p id="head2">{{ postamat.first_coordinate if postamat.first_coordinate else 'N/A' }}</p>
+                <p id="head3">{{ postamat.second_coordinate if postamat.second_coordinate else 'N/A' }}</p>
+                <button class="more" onclick="toggleBlock({{ postamat.id }})" id="more-{{ postamat.id }}">Подробнее
+                </button>
+            </div>
+            <div class="postamt-more" id="postamat-more-{{ postamat.id }}" style="display: none;"> {# Updated ID #}
+                <div class="cells">
+                    <div class="cell cell_1">1</div>
+                    <div class="cell cell_2">2</div>
+                    <div class="cell cell_3">3</div>
+                    <div class="cell cell_13">13</div>
+                    <div class="cell cell_14">14</div>
+                    <div class="cell open">картинку закину</div>
+                    <div class="cell cell_4">4</div>
+                    <div class="cell cell_5">5</div>
+                    <div class="cell cell_6">6</div>
+                    <div class="cell cell_7">7</div>
+                    <div class="cell cell_8">8</div>
+                    <div class="cell cell_9">9</div>
+                    <div class="cell cell_10">10</div>
+                    <div class="cell cell_11">11</div>
+                    <div class="cell cell_12">12</div>
+                    <div class="cell cell_17">17</div>
+                    <div class="cell cell_18">18</div>
+                    <div class="cell cell_19">19</div>
+                    <div class="cell cell_15">15</div>
+                    <div class="cell cell_16">16</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

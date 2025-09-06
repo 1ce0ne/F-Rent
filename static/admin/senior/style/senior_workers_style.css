@@ -1,0 +1,260 @@
+/* Стили взяты из owner_users_style.css для унификации внешнего вида */
+
+#head1 {
+    padding-left: 2%;
+    width: 25%;
+}
+#head2 {
+    width: 25%;
+}
+#head3 {
+    width: 25%;
+}
+#head4 {
+    width: 10%;
+}
+#head5 {
+    width: 15%;
+}
+
+.scroll-item {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 10% 15%;
+    align-items: center;
+    border-bottom: 1px solid var(--grey);
+    background: #fff;
+    transition: background 0.15s;
+}
+.scroll-item:hover {
+    background: #f5faff;
+}
+
+.more {
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 0.3em;
+    box-shadow: 2px 2px 5px 1px var(--grey);
+    padding: 7px 0;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+.more:hover {
+    background-color: var(--darkblue);
+}
+.more.wide {
+    width: 90%;
+    margin: 0 auto;
+}
+.more.confs {
+    background-color: var(--green);
+}
+.more.confs:hover {
+    background-color: var(--darkgreen);
+}
+.more.red {
+    background-color: var(--red);
+}
+.more.red:hover {
+    background-color: var(--darkred);
+}
+
+.worker-dialog {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    max-width: 600px;
+    width: 90%;
+}
+
+.office-assign-dialog {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+}
+
+.worker-add-dialog {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    max-width: 400px;
+    width: 90%;
+}
+
+.dialog-content {
+    padding: 20px;
+    position: relative;
+}
+
+.closedio {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.closedio:hover {
+    background: var(--darkred);
+}
+
+.worker-details p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.worker-details strong {
+    color: var(--darkblue);
+}
+
+.office-assignments {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.office-assignments h3 {
+    margin: 0 0 10px 0;
+    color: var(--darkblue);
+    font-size: 16px;
+}
+
+.office-assignment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin: 4px 0;
+    border-radius: 4px;
+    background: white;
+}
+
+.available-office-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin: 8px 0;
+    border-radius: 4px;
+    background: #f9f9f9;
+    transition: background 0.2s;
+}
+
+.available-office-item:hover {
+    background: #e8f4f8;
+}
+
+.worker-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.worker-actions button {
+    flex: 1;
+    min-width: 120px;
+}
+
+.worker-label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+    color: var(--darkblue);
+}
+
+.worker-label input,
+.worker-label select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.worker-label input:focus,
+.worker-label select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+#edit-worker-form {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+#add-worker-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#add-worker-form button {
+    margin-top: 15px;
+    padding: 10px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .scroll-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    #head1, #head2, #head3, #head4, #head5 {
+        width: 100%;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .worker-actions {
+        flex-direction: column;
+    }
+
+    .worker-actions button {
+        min-width: auto;
+    }
+
+    .office-assignment-item,
+    .available-office-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* Стили для диалогов на мобильных */
+@media (max-width: 480px) {
+    .worker-dialog,
+    .office-assign-dialog,
+    .worker-add-dialog {
+        width: 95%;
+        margin: 10px;
+    }
+
+    .dialog-content {
+        padding: 15px;
+    }
+}

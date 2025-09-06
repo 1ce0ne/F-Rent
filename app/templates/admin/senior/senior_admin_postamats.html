@@ -1,0 +1,88 @@
+{% extends "admin/senior/senior_admin_base.html" %}
+{% block title %}Постаматы - Admin Panel{% endblock %}
+{% block head_extra %}
+<script src="{{ url_for('static', path='admin/senior/js/senior_postamats_js.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', path='admin/senior/style/senior_postamats_style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="search">
+    <button class="nav-toggle" aria-label="Открыть меню">&#9776;</button>
+    <input type="search" name="" id="search" placeholder="Поиск по адресу">
+    <button onClick="window.location.reload();" class="reload"><img
+            src="{{ url_for('static', path='img/reload.png') }}" alt="" height="30px"></button>
+</div>
+
+<div class="postamts">
+    <h1>Постаматы</h1>
+    <button class="add" id="add-postamat-btn">+ Добавить постамат</button>
+    {# Added ID for JS #}
+    <div class="table">
+        <div class="table-head">
+            <p id="head1">Адрес</p>
+            <p id="head2">Широта</p>
+            <p id="head3">Долгота</p>
+        </div>
+        <div class="table-scroll">
+            {% for product in products %}{# products here actually refers to postamats #}
+            <div class="scroll-item">
+                <p id="head1">{{ product.address_of_postamat }}</p>
+                <p id="head2">{{ product.first_coordinate if product.first_coordinate else 'N/A' }}</p>
+                {# Display coordinates if available #}
+                <p id="head3">{{ product.second_coordinate if product.second_coordinate else 'N/A' }}</p>
+                {# Display coordinates if available #}
+                <button class="more" onclick="toggleBlock({{ product.id }})" id="more-{{ product.id }}">
+                    Подробнее
+                </button>
+            </div>
+            <div class="postamt-more" id="postamat-more-{{ product.id }}" style="display: none;">
+                {# Updated ID #}
+                <div class="cells">
+                    {# Здесь будут ячейки постамата. Это может быть динамически сгенерировано JS #}
+                    {# В текущем шаблоне они статичны, но для реальной работы их нужно получать с сервера #}
+                    {# Пример статических ячеек из оригинального шаблона #}
+                    <div class="cell cell_1">1</div>
+                    <div class="cell cell_2">2</div>
+                    <div class="cell cell_3">3</div>
+                    <div class="cell cell_13">13</div>
+                    <div class="cell cell_14">14</div>
+                    <div class="cell open">картинку закину</div>
+                    <div class="cell cell_4">4</div>
+                    <div class="cell cell_5">5</div>
+                    <div class="cell cell_6">6</div>
+                    <div class="cell cell_7">7</div>
+                    <div class="cell cell_8">8</div>
+                    <div class="cell cell_9">9</div>
+                    <div class="cell cell_10">10</div>
+                    <div class="cell cell_11">11</div>
+                    <div class="cell cell_12">12</div>
+                    <div class="cell cell_17">17</div>
+                    <div class="cell cell_18">18</div>
+                    <div class="cell cell_19">19</div>
+                    <div class="cell cell_15">15</div>
+                    <div class="cell cell_16">16</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{# Диалог для добавления нового постамата #}
+<dialog class="add-postamat-dialog" id="add-postamat-dialog">
+    <div class="dialog-content">
+        <button class="closedio">X</button>
+        <h2>Добавить новый постамат</h2>
+        <form id="add-postamat-form">
+            <label for="new-postamat-address">Адрес:</label>
+            <input type="text" id="new-postamat-address" name="address" required>
+            <label for="new-postamat-lat">Широта:</label>
+            <input type="text" id="new-postamat-lat" name="latitude">
+            <label for="new-postamat-lon">Долгота:</label>
+            <input type="text" id="new-postamat-lon" name="longitude">
+            <button type="submit" class="more confs">Добавить</button>
+        </form>
+    </div>
+</dialog>
+
+{% endblock %}

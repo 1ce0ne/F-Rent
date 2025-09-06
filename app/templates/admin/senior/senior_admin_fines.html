@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Штрафы - Старший администратор</title>
+    <link rel="stylesheet" href="/static/admin/senior/senior_admin_style.css">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👨‍💼 AccuBatt - Управление штрафами</h1>
+            <nav>
+                <a href="/admin-senior/offices">🏢 Офисы</a>
+                <a href="/admin-senior/products">📦 Товары</a>
+                <a href="/admin-senior/orders">📋 Заказы</a>
+                <a href="/admin-senior/users">👥 Пользователи</a>
+                <a href="/admin-senior/workers">👷 Сотрудники</a>
+                <a href="/admin-senior/returns">↩️ Возвраты</a>
+                <a href="/admin-senior/troubleshooting">🔧 Диагностика</a>
+                <a href="/admin-senior/fines" class="active">💰 Штрафы</a>
+                <a href="/logout">🚪 Выход</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h2>💰 Управление штрафами</h2>
+                <p>Создание, просмотр и управление штрафами пользователей</p>
+            </div>
+
+            {% if error %}
+            <div class="error-message">
+                <h3>⚠️ Система штрафов недоступна</h3>
+                <p>{{ error }}</p>
+                <div class="migration-hint">
+                    <h4>Для активации системы штрафов:</h4>
+                    <ol>
+                        <li>Выполните команду: <code>python migrate_db.py</code></li>
+                        <li>Обновите страницу после завершения миграции</li>
+                    </ol>
+                </div>
+            </div>
+            {% else %}
+
+            <!-- Статистика штрафов -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <h3>{{ statistics.total_fines }}</h3>
+                        <p>Всего штрафов</p>
+                    </div>
+                </div>
+
+                <div class="stat-card success">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <h3>{{ statistics.paid_fines }}</h3>
+                        <p>Оплаченных</p>
+                    </div>
+                </div>
+
+                <div class="stat-card warning">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-content">
+                        <h3>{{ statistics.unpaid_fines }}</h3>
+                        <p>Неоплаченных</p>
+                    </div>
+                </div>
+
+                <div class="stat-card danger">
+                    <div class="stat-icon">🚨</div>
+                    <div class="stat-content">
+                        <h3>{{ statistics.overdue_fines }}</h3>
+                        <p>Просроченных</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Действия -->
+            <div class="actions-panel">
+                <button class="btn btn-primary" onclick="createNewFine()">➕ Создать штраф</button>
+                <button class="btn btn-secondary" onclick="refreshData()">🔄 Обновить</button>
+                <button class="btn btn-info" onclick="showFilters()">🔍 Фильтры</button>
+                <button class="btn btn-success" onclick="bulkActions()">📋 Массовые действия</button>
+            </div>
+
+            <!-- Фильтры (скрыты по умолчанию) -->
+            <div id="filtersPanel" class="filters-panel" style="display: none;">
+                <h4>🔍 Фильтры поиска</h4>
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label>Статус:</label>
+                        <select id="statusFilter">
+                            <option value="">Все</option>
+                            <option value="unpaid">Неоплаченные</option>
+                            <option value="paid">Оплаченные</option>
+                            <option value="overdue">Просроченные</option>
+                            <option value="canceled">Отмененные</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Пользователь:</label>
+                        <input type="text" id="userFilter" placeholder="Имя или телефон">
+                    </div>
+                    <div class="filter-group">
+                        <label>Сумма от:</label>
+                        <input type="number" id="amountFromFilter" placeholder="0">
+                    </div>
+                    <div class="filter-group">
+                        <label>Сумма до:</label>
+                        <input type="number" id="amountToFilter" placeholder="99999">
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn btn-primary" onclick="applyFilters()">Применить</button>
+                    <button class="btn btn-secondary" onclick="clearFilters()">Очистить</button>
+                </div>
+            </div>
+
+            <!-- Последние штрафы -->
+            {% if statistics.recent_fines %}
+            <div class="table-section">
+                <h3>📋 Штрафы (последние {{ statistics.recent_fines|length }})</h3>
+                <div class="table-container">
+                    <table class="fines-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAll"></th>
+                                <th>ID</th>
+                                <th>Пользователь</th>
+                                <th>Товар</th>
+                                <th>Сумма</th>
+                                <th>Причина</th>
+                                <th>Статус</th>
+                                <th>Создан</th>
+                                <th>Срок оплаты</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in statistics.recent_fines %}
+                            <tr data-fine-id="{{ item.fine.fine_id }}"
+                                class="{% if item.fine.is_overdue %}overdue{% endif %}">
+                                <td><input type="checkbox" class="fine-checkbox" value="{{ item.fine.fine_id }}"></td>
+                                <td>#{{ item.fine.fine_id }}</td>
+                                <td>
+                                    <div class="user-info">
+                                        <strong>{{ item.user.name }}</strong><br>
+                                        <small>{{ item.user.phone_number }}</small>
+                                    </div>
+                                </td>
+                                <td>{{ item.product.name }}</td>
+                                <td class="amount">{{ item.fine.fine_amount }} ₽</td>
+                                <td class="reason">{{ item.fine.fine_reason[:30] }}{% if item.fine.fine_reason|length > 30 %}...{% endif %}</td>
+                                <td>
+                                    <span class="status status-{{ item.fine.fine_status }}">
+                                        {% if item.fine.fine_status == 'paid' %}✅ Оплачен
+                                        {% elif item.fine.fine_status == 'unpaid' %}
+                                            {% if item.fine.is_overdue %}🚨 Просрочен
+                                            {% else %}⏰ Не оплачен{% endif %}
+                                        {% elif item.fine.fine_status == 'canceled' %}❌ Отменен
+                                        {% else %}{{ item.fine.fine_status }}
+                                        {% endif %}
+                                    </span>
+                                </td>
+                                <td>{{ item.fine.created_at.strftime('%d.%m.%Y %H:%M') if item.fine.created_at else 'N/A' }}</td>
+                                <td>
+                                    {% if item.fine.due_date %}
+                                        <span class="{% if item.fine.is_overdue %}overdue-date{% endif %}">
+                                            {{ item.fine.due_date.strftime('%d.%m.%Y') }}
+                                        </span>
+                                    {% else %}N/A{% endif %}
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-sm btn-info" onclick="viewFineDetails({{ item.fine.fine_id }})">
+                                            👁️
+                                        </button>
+                                        {% if item.fine.fine_status == 'unpaid' %}
+                                        <button class="btn btn-sm btn-success" onclick="markAsPaid({{ item.fine.fine_id }})">
+                                            💳
+                                        </button>
+                                        <button class="btn btn-sm btn-warning" onclick="editFine({{ item.fine.fine_id }})">
+                                            ✏️
+                                        </button>
+                                        <button class="btn btn-sm btn-danger" onclick="cancelFine({{ item.fine.fine_id }})">
+                                            ❌
+                                        </button>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% else %}
+            <div class="no-data">
+                <h3>📭 Штрафов пока нет</h3>
+                <p>Штрафы будут отображаться здесь по мере их создания</p>
+                <button class="btn btn-primary" onclick="createNewFine()">➕ Создать первый штраф</button>
+            </div>
+            {% endif %}
+
+            {% endif %}
+        </main>
+    </div>
+
+    <!-- Модальное окно создания штрафа -->
+    <div id="createFineModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>➕ Создание нового штрафа</h3>
+                <span class="close" onclick="closeModal('createFineModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Форма создания штрафа будет доступна после полной реализации API штрафов.</p>
+                <p>Пока штрафы можно создавать через API:</p>
+                <code>POST /api/create-fine</code>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Управление фильтрами
+        function showFilters() {
+            const panel = document.getElementById('filtersPanel');
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function applyFilters() {
+            // Пока заглушка - в будущем будет AJAX запрос с фильтрами
+            alert('Фильтрация будет доступна после полной реализации системы штрафов');
+        }
+
+        function clearFilters() {
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('userFilter').value = '';
+            document.getElementById('amountFromFilter').value = '';
+            document.getElementById('amountToFilter').value = '';
+        }
+
+        // Управление штрафами
+        function createNewFine() {
+            document.getElementById('createFineModal').style.display = 'block';
+        }
+
+        function viewFineDetails(fineId) {
+            alert('Детали штрафа #' + fineId + ' будут доступны после полной реализации системы штрафов');
+        }
+
+        function markAsPaid(fineId) {
+            if (confirm('Отметить штраф #' + fineId + ' как оплаченный?')) {
+                // Пока заглушка - в будущем будет API запрос
+                alert('Функция отметки об оплате будет доступна после полной реализации API');
+            }
+        }
+
+        function editFine(fineId) {
+            alert('Редактирование штрафа #' + fineId + ' будет доступно после полной реализации системы штрафов');
+        }
+
+        function cancelFine(fineId) {
+            if (confirm('Отменить штраф #' + fineId + '?')) {
+                alert('Функция отмены штрафа будет доступна после полной реализации API');
+            }
+        }
+
+        // Массовые действия
+        function bulkActions() {
+            const selected = document.querySelectorAll('.fine-checkbox:checked');
+            if (selected.length === 0) {
+                alert('Выберите штрафы для массового действия');
+                return;
+            }
+            alert('Массовые действия для ' + selected.length + ' штрафов будут доступны после полной реализации');
+        }
+
+        // Выбор всех чекбоксов
+        document.getElementById('selectAll').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.fine-checkbox');
+            checkboxes.forEach(cb => cb.checked = this.checked);
+        });
+
+        // Модальные окна
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Закрытие модальных окон по клику вне них
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        function refreshData() {
+            location.reload();
+        }
+    </script>
+
+    <style>
+        .error-message {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .migration-hint {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ffeaa7;
+        }
+
+        .migration-hint code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stat-card.success { border-left: 4px solid #28a745; }
+        .stat-card.warning { border-left: 4px solid #ffc107; }
+        .stat-card.danger { border-left: 4px solid #dc3545; }
+
+        .stat-icon { font-size: 1.8em; }
+
+        .stat-content h3 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .stat-content p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .actions-panel {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filters-panel {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .filter-group input,
+        .filter-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .filter-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+
+        .btn-primary { background: #007bff; color: white; }
+        .btn-secondary { background: #6c757d; color: white; }
+        .btn-info { background: #17a2b8; color: white; }
+        .btn-success { background: #28a745; color: white; }
+        .btn-warning { background: #ffc107; color: #212529; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-sm { padding: 4px 8px; font-size: 0.8em; }
+
+        .table-section {
+            margin: 30px 0;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .fines-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .fines-table th,
+        .fines-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .fines-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .fines-table tr.overdue {
+            background-color: #fff5f5;
+        }
+
+        .user-info strong {
+            color: #333;
+        }
+
+        .user-info small {
+            color: #666;
+        }
+
+        .amount {
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .reason {
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .status {
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+
+        .status-paid { background: #d4edda; color: #155724; }
+        .status-unpaid { background: #fff3cd; color: #856404; }
+        .status-canceled { background: #f8d7da; color: #721c24; }
+
+        .overdue-date {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 0;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .close {
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #dc3545;
+        }
+    </style>
+</body>
+</html>

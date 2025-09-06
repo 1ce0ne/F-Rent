@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация успешна</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #4CAF50;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .user-info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .user-info h3 {
+            margin: 0 0 15px;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .info-value {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .redirect-info {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #1976d2;
+        }
+
+        .countdown {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .manual-return {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 10px;
+            color: #ef6c00;
+        }
+
+        .return-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .return-button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✓</div>
+        <h1>Успешно!</h1>
+        <p class="subtitle">Авторизация через Telegram выполнена</p>
+
+        <div class="user-info">
+            <h3>Информация о пользователе</h3>
+            <div class="info-row">
+                <span class="info-label">ID пользователя:</span>
+                <span class="info-value" id="user-id">{{ user_id }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Telegram ID:</span>
+                <span class="info-value">{{ telegram_id }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Имя:</span>
+                <span class="info-value">{{ full_name }}</span>
+            </div>
+            {% if username %}
+            <div class="info-row">
+                <span class="info-label">Username:</span>
+                <span class="info-value">@{{ username }}</span>
+            </div>
+            {% endif %}
+            {% if phone %}
+            <div class="info-row">
+                <span class="info-label">Телефон:</span>
+                <span class="info-value">{{ phone }}</span>
+            </div>
+            {% endif %}
+            {% if banned %}
+            <div class="info-row">
+                <span class="info-label">Статус:</span>
+                <span class="info-value" style="color: #f44336;">Заблокирован</span>
+            </div>
+            {% if ban_reason %}
+            <div class="info-row">
+                <span class="info-label">Причина блокировки:</span>
+                <span class="info-value" style="color: #f44336;">{{ ban_reason }}</span>
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+
+        <div class="redirect-info">
+            <p>Возвращаемся в приложение через <span class="countdown" id="countdown">3</span> секунд...</p>
+        </div>
+
+        <div class="manual-return">
+            <p>Если автоматический возврат не работает, нажмите кнопку ниже:</p>
+            <button class="return-button" onclick="returnToApp()">Вернуться в приложение</button>
+        </div>
+    </div>
+
+    <script>
+        // Данные для передачи в приложение
+        const authData = {
+            success: true,
+            token: '{{ token }}',
+            user_id: {{ user_id }},
+            session_id: '{{ session_id }}',
+            telegram_id: {{ telegram_id }},
+            username: '{{ username }}',
+            full_name: '{{ full_name }}',
+            phone: '{{ phone }}',
+            banned: {{ 'true' if banned else 'false' }},
+            ban_reason: '{{ ban_reason or "" }}'
+        };
+
+        // Обратный отсчет
+        let countdown = 3;
+        const countdownElement = document.getElementById('countdown');
+
+        const timer = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            if (countdown <= 0) {
+                clearInterval(timer);
+                returnToApp();
+            }
+        }, 1000);
+
+        function returnToApp() {
+            // Попытка отправить данные в мобильное приложение
+            try {
+                // Для React Native WebView
+                if (window.ReactNativeWebView) {
+                    window.ReactNativeWebView.postMessage(JSON.stringify({
+                        type: 'telegram_auth_complete',
+                        data: authData
+                    }));
+                    return;
+                }
+
+                // Для iOS WKWebView
+                if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.telegramAuth) {
+                    window.webkit.messageHandlers.telegramAuth.postMessage(authData);
+                    return;
+                }
+
+                // Для Android WebView
+                if (window.AndroidInterface && window.AndroidInterface.onTelegramAuth) {
+                    window.AndroidInterface.onTelegramAuth(JSON.stringify(authData));
+                    return;
+                }
+
+                // Для Flutter WebView
+                if (window.TelegramAuth && window.TelegramAuth.postMessage) {
+                    window.TelegramAuth.postMessage(JSON.stringify(authData));
+                    return;
+                }
+
+                // Попытка через custom scheme
+                window.location.href = `akkubatt://auth-complete?data=${encodeURIComponent(JSON.stringify(authData))}`;
+
+            } catch (error) {
+                console.error('Error sending data to app:', error);
+                // Fallback - сохранить в localStorage для приложения
+                localStorage.setItem('telegram_auth_data', JSON.stringify(authData));
+                alert('Данные сохранены. Вернитесь в приложение вручную.');
+            }
+        }
+
+        // Автоматическая отправка данных при загрузке страницы
+        window.addEventListener('load', function() {
+            // Даем время на инициализацию WebView
+            setTimeout(() => {
+                // Отправляем данные сразу, не дожидаясь таймера
+                try {
+                    if (window.ReactNativeWebView ||
+                        (window.webkit && window.webkit.messageHandlers) ||
+                        window.AndroidInterface ||
+                        window.TelegramAuth) {
+                        returnToApp();
+                    }
+                } catch (error) {
+                    console.log('WebView interface not ready, waiting for timer...');
+                }
+            }, 500);
+        });
+
+        // Обработка нажатия кнопки "Назад" в браузере
+        window.addEventListener('beforeunload', function() {
+            returnToApp();
+        });
+    </script>
+</body>
+</html>
+
