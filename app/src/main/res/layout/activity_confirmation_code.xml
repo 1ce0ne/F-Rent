@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="210dp"
+        android:layout_height="95dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075"
+        app:srcCompat="@drawable/logotip_akkkubatt" />
+
+    <TextView
+        android:id="@+id/textViewUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="60dp"
+        android:gravity="center_horizontal"
+        android:text="Подтверждение номера\nтелефона"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <TextView
+        android:id="@+id/textWaiting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="60dp"
+        android:gravity="center_horizontal"
+        android:text="Введите код подтверждения"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdate" />
+
+    <FrameLayout
+        android:id="@+id/firstNumberCode"
+        android:layout_width="75dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/sign_up_and_login_background"
+        app:layout_constraintEnd_toStartOf="@+id/secondNumberCode"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textWaiting">
+
+        <EditText
+            android:id="@+id/firstTextNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="10dp"
+            android:ems="1"
+            android:inputType="number" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/secondNumberCode"
+        android:layout_width="75dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sign_up_and_login_background"
+        app:layout_constraintEnd_toStartOf="@+id/thirdNumberCode"
+        app:layout_constraintStart_toEndOf="@+id/firstNumberCode"
+        app:layout_constraintTop_toBottomOf="@+id/textWaiting">
+
+        <EditText
+            android:id="@+id/secondTextNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="10dp"
+            android:ems="1"
+            android:inputType="number" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/thirdNumberCode"
+        android:layout_width="75dp"
+        android:layout_height="90dp"
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sign_up_and_login_background"
+        app:layout_constraintEnd_toStartOf="@+id/fourthNumberCode"
+        app:layout_constraintStart_toEndOf="@+id/secondNumberCode"
+        app:layout_constraintTop_toBottomOf="@+id/textWaiting">
+
+        <EditText
+            android:id="@+id/thirdTextNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="10dp"
+            android:ems="1"
+            android:inputType="number" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fourthNumberCode"
+        android:layout_width="75dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/sign_up_and_login_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/thirdNumberCode"
+        app:layout_constraintTop_toBottomOf="@+id/textWaiting">
+
+        <EditText
+            android:id="@+id/fourthTextNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="10dp"
+            android:ems="1"
+            android:inputType="number" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/sendAgainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="19dp"
+
+        android:text="Отправить код заново"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondNumberCode" />
+
+    <FrameLayout
+        android:id="@+id/confirmButton"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/sign_up_and_login_background"
+
+        app:layout_constraintEnd_toEndOf="@+id/textViewUpdate"
+        app:layout_constraintStart_toStartOf="@+id/textViewUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/sendAgainText">
+
+        <TextView
+            android:id="@+id/smsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_vertical|center_horizontal"
+
+            android:text="Подтвердить"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

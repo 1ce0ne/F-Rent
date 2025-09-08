@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="210dp"
+        android:layout_height="95dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="45dp"
+        app:srcCompat="@drawable/logotip_akkkubatt" />
+
+    <!-- Остальные элементы остаются без изменений -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Оставьте отзыв"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"/>
+
+    <LinearLayout
+        android:id="@+id/starsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/star"
+            android:layout_marginEnd="3dp"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/star"
+            android:layout_marginEnd="3dp"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/star"
+            android:layout_marginEnd="3dp"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/star"
+            android:layout_marginEnd="3dp"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/star" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/feedbackEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:hint="Введите ваш отзыв"
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="60dp"
+        android:background="@drawable/return_button_postamat_back"
+        android:text="Отправить отзыв"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PeriodButtonStyle">
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- ... другие атрибуты темы -->
+    </style>
+
+    <style name="TransparentActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+
+
+</resources>
+

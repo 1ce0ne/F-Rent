@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Логотип -->
+
+    <!-- ScrollView для прокрутки всего контента (теперь шире и без mainLayout) -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="7.5dp"
+        android:layout_marginVertical="20dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backToProfileButton">
+
+        <!-- Основной контейнер для контента -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Фрейм "Личные данные" -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_background"
+                android:padding="10dp">
+
+                <!-- Заголовок "Управление профилем" -->
+                <TextView
+                    android:id="@+id/privateDannye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Управление аккаунтом"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/howChangeImageInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/privateDannye">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Проверьте подключение к интернету
+                        \n2. Убедитесь, что изображение соответствует требованиям (размер до 16MB)
+                        \n3. Попробуйте перезагрузить изображение приложение
+                        \n4. Если проблема сохраняется, обратитесь в поддержку"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Кнопка "Я забыл пароль" -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profileForgotPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/howChangeImageInfo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Я забыл пароль"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/profileForgotPasswordInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/profileForgotPassword">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. На странице входа нажмите 'Забыли пароль?'
+                        \n2. Введите номер телефона, указанный при регистрации
+                        \n3. Вам придёт код подтверждения смены пароля, введите его в специальное окно
+                        \n4. Если СМС нет, попробуйте повторить запрос, или обратитесь в поддержку"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Кнопка "Отвязать карту" -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/howDeleteCard"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profileForgotPasswordInfo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Отвязать карту"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/howDeleteCardInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/howDeleteCard">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Перейдите в раздел 'Карты'
+                        \n2. Найдите карту, которую вы хотите удалить
+                        \n3. Нажмите на крестик справа верху карты
+                        \n4. Подтвердите действие
+                        \n5. Карта будет отвязана от вашего аккаунта"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Кнопка "Отключить автопродление" -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/howOffDopTime"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/howDeleteCardInfo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Отключить автопродление"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/howOffDopTimeInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/howOffDopTime">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="К сожалению функция 'Автопродление' является обязательной и отключить её никак нельзя"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Фрейм "Об использовании" -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_background"
+                android:padding="10dp">
+
+                <!-- Заголовок "Технические вопросы" -->
+                <TextView
+                    android:id="@+id/aboutUsage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Технические вопросы"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Кнопка "Как арендовать товар?" -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/privatePolicy"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/aboutUsage">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Как арендовать товар?"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/privatePolicyInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/privatePolicy">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Найдите ближайший к вам офис на карте
+                        \n2. Перейдите в окно офиса и выберите нужный Вам товар
+                        \n3. Укажите срок аренды и нажмите кнопку 'Арендовать'
+                        \n4. У вас автоматически спишется сумма заказа
+                        \n5. Дождитесь подтверждения от оператора
+                        \n6. Получите товар"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Кнопка "Как продлить товар?" -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/aboutOfApp"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/privatePolicyInfo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Как продлить товар?"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/aboutOfAppInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/aboutOfApp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Перейдите в раздел 'Профиль'
+                        \n2. Выберите активную аренду
+                        \n3. Выберите время, на какое Вы хотите продлить
+                        \n4. Нажмите кнопку 'Продлить'
+                        \n5. Подтвердите продление
+                        \n6. Оплатите дополнительный период"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Кнопка "Как вернуть товар?" -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/howBackProduct"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/aboutOfAppInfo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Как вернуть товар?"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/howBackProductInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/howBackProduct">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Найдите ближайший к вам постамат на карте
+                        \n2. Нажмите на кнопку 'Вернуть товар'
+                        \n3. Выберите товар который вы хотите вернуть
+                        \n4. Сделайте фото товара
+                        \n5. Оставьте отзыв об использовании товара
+                        \n6. Дождитесь подтверждения возврата"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Кнопка "Товар не возвращается" -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/howBackProductInPostamat"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/howBackProductInfo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Товар не возвращается"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/howBackProductInPostamatInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/howBackProductInPostamat">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Проверьте подключение к интернету
+                        \n2. Попробуйте перезагрузить приложение
+                        \n3. Если проблема сохраняется, обратитесь в поддержку
+                        \n4. Укажите номер телефона, заказ и описание проблемы"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Фрейм "Платежи и подписки" -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_background"
+                android:padding="10dp">
+
+                <!-- Заголовок "Опасная зона" -->
+                <TextView
+                    android:id="@+id/dangerousZone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Платежи и подписки"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Кнопка "Способы оплаты" -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/paymentSposob"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dangerousZone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Способы оплаты"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/paymentSposobInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/paymentSposob">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="- Доступные способы оплаты:
+                        1. Банковские карты (Visa, Mastercard, Мир, UnionPay)
+                        \n4. СБП (Система быстрых платежей)
+                        \n\n- Для добавления карты:
+                        \n1. Перейдите в раздел 'Карты' в профиле
+                        \n2. Нажмите 'Добавить карту'
+                        \n3. Введите данные карты
+                        \n4. Подтвердите привязку"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Кнопка "Возврат средств" -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/returnMoney"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/paymentSposobInfo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Возврат средств"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Информация под кнопкой (скрыта по умолчанию) -->
+                <LinearLayout
+                    android:id="@+id/returnMoneyInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/returnMoney">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Возврат средств не предусмотрен"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/backToProfileButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_to_main_button"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textFAQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="Частые вопросы"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

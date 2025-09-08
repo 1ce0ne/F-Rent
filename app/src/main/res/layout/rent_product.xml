@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Кнопка закрытия -->
+    <Button
+        android:id="@+id/closePostamatButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_to_main_button"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Список товаров -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/postamat_background"
+        android:clipToPadding="true"
+        android:overScrollMode="never"
+        android:fillViewport="true"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/periodSelectionLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/closePostamatButton">
+
+        <!-- Все компоненты внутри NestedScrollView -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Название товара -->
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Название товара"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Изображение товара -->
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/rounded_corners"
+                android:clipToOutline="true"
+                android:contentDescription="@string/product_image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productName" />
+
+            <!-- Разделительная линия -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="45dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="#000000"
+                app:layout_constraintBottom_toTopOf="@+id/productDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productImage" />
+
+            <!-- Описание товара -->
+            <TextView
+                android:id="@+id/productDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="8dp"
+                android:text="Описание товара"
+                android:textColor="#4F4F4F"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/productImage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Блок выбора периода аренды -->
+    <LinearLayout
+        android:id="@+id/periodSelectionLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:background="@drawable/rounded_border"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/rentProduct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Кнопка 1 час -->
+        <Button
+            android:id="@+id/hourButton"
+            style="@style/PeriodButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1 час\n100 ₽"
+            android:background="@drawable/period_button_selector" />
+
+        <!-- Кнопка 1 день -->
+        <Button
+            android:id="@+id/dayButton"
+            style="@style/PeriodButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1 день\n500 ₽"
+            android:background="@drawable/period_button_selector" />
+
+        <!-- Кнопка 1 месяц -->
+        <Button
+            android:id="@+id/monthButton"
+            style="@style/PeriodButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1 месяц\n10 000 ₽"
+            android:background="@drawable/period_button_selector" />
+    </LinearLayout>
+
+    <!-- Кнопка аренды -->
+    <Button
+        android:id="@+id/rentProduct"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/return_button_postamat_back"
+        android:text="Арендовать"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Кнопка аренды -->
+
+    <TextView
+        android:id="@+id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="28dp"
+        tools:visibility="invisible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

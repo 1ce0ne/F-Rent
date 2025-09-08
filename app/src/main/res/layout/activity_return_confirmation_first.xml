@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/stepText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сделайте фото товара"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="45dp" />
+
+    <FrameLayout
+        android:id="@+id/frameUnderPhoto"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/postamat_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stepText">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="8dp">
+
+            <FrameLayout
+                android:id="@+id/photoFrame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:background="@android:color/darker_gray">
+
+                <ImageView
+                    android:id="@+id/productPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Фото товара"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/placeholder_image" />
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/takePhotoButton"
+        android:layout_width="215dp"
+        android:layout_height="52dp"
+        android:background="@drawable/return_button_postamat_back"
+        android:text="Сделать фото"
+        android:textColor="@android:color/black"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frameUnderPhoto"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:id="@+id/toReviewButton"
+        android:layout_width="215dp"
+        android:layout_height="52dp"
+        android:text="Далее"
+        android:background="@drawable/return_button_postamat_back"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/takePhotoButton"
+        android:layout_marginTop="14dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="313dp"
+        android:background="@drawable/card_back"
+        android:orientation="vertical"
+        android:padding="16dp"> <!-- Фоновое изображение карты -->
+
+        <!-- Поле для ввода номера карты -->
+        <EditText
+            android:id="@+id/cardNumberEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@android:color/white"
+            android:hint="Номер карты"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="16sp" />
+
+        <!-- Поле для ввода CVV -->
+        <EditText
+            android:id="@+id/cvvEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@android:color/white"
+            android:hint="CVV"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="16sp" />
+
+        <!-- Поле для ввода даты действия -->
+        <EditText
+            android:id="@+id/expiryDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@android:color/white"
+            android:hint="Дата действия (MM/YY)"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="16sp" />
+
+        <!-- Поле для ввода имени держателя карты -->
+        <EditText
+            android:id="@+id/cardHolderEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@android:color/white"
+            android:hint="Держатель карты (Как на карте)"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="16sp" />
+
+        <!-- Кнопка добавления карты -->
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sign_up_and_login_button_background"
+            android:elevation="4dp"
+            android:letterSpacing="0.1"
+            android:padding="12dp"
+            android:text="Добавить карту"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

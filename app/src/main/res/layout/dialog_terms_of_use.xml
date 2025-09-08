@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/dialog_background"> <!-- Фон с скругленными углами -->
+
+    <!-- Фрейм для текста условий использования -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginBottom="8dp"
+    android:background="@drawable/sign_up_and_login_button_background"
+    android:padding="8dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/termsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Условия использования..."
+            android:textSize="14sp"
+            android:padding="8dp" />
+    </ScrollView>
+</FrameLayout>
+
+    <!-- Чекбокс для согласия -->
+<CheckBox
+android:id="@+id/agreeCheckBox"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Я прочитал(а) и согласен(на) с условиями использования приложения."
+android:layout_marginBottom="16dp" />
+
+    <!-- Контейнер для кнопок -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:layout_marginTop="16dp"
+android:weightSum="2"
+android:paddingHorizontal="16dp">
+
+<!-- Кнопка "Отклонить" -->
+<Button
+    android:id="@+id/declineButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/sign_up_and_login_button_background"
+    android:text="Отклонить"
+    android:textSize="14sp"
+    android:padding="8dp" />
+
+<!-- Кнопка "Принять" -->
+<Button
+    android:id="@+id/acceptButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_marginStart="8dp"
+    android:background="@drawable/sign_up_and_login_button_background"
+    android:text="Принять"
+    android:textSize="14sp"
+    android:padding="8dp"
+    android:enabled="false" />
+</LinearLayout>
+    </LinearLayout>

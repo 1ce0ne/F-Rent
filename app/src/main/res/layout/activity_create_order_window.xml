@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Кнопка закрытия -->
+
+    <TextView
+        android:id="@+id/textProlongOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_marginTop="15dp"
+        android:text="Аренда товара"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- Список товаров -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/postamat_background"
+        android:clipToPadding="true"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textProlongOrder">
+
+        <!-- Все компоненты внутри NestedScrollView -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Изображение товара -->
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corners"
+                android:clipToOutline="true"
+                android:contentDescription="@string/product_image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Описание товара -->
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:text="Название товара"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Описание товара -->
+            <TextView
+                android:id="@+id/remainderTimeRent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="30dp"
+                android:padding="8dp"
+                android:text="Тариф: 1 час"
+                android:textColor="#4F4F4F"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toTopOf="@+id/productName" />
+
+            <!-- Описание товара -->
+            <TextView
+                android:id="@+id/endTimeRent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:padding="8dp"
+                android:layout_marginTop="30dp"
+                android:text="Конец: mm:hh dd.mm.yy"
+                android:textColor="#4F4F4F"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toTopOf="@+id/remainderTimeRent" />
+
+            <!-- Центрированный блок -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="80dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productImage">
+
+                <TextView
+                    android:id="@+id/chooseProlongTarif"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center|center_horizontal"
+                    android:padding="2dp"
+                    android:text="Статус аренды"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toStartOf="@+id/circleBackgroundView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/statusOfRent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Создание заказа"
+                    android:textColor="#4F4F4F"
+                    android:textSize="14sp"
+
+                    app:layout_constraintEnd_toStartOf="@+id/circleBackgroundView"
+                    app:layout_constraintStart_toStartOf="@+id/chooseProlongTarif"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseProlongTarif" />
+
+                <View
+                    android:id="@+id/circleBackgroundView"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/order_circle_initial"
+                    app:layout_constraintBottom_toBottomOf="@+id/statusOfRent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/chooseProlongTarif" />
+
+                <ImageView
+                    android:id="@+id/statusImage"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/circleBackgroundView"
+                    app:layout_constraintEnd_toEndOf="@+id/circleBackgroundView"
+                    app:layout_constraintStart_toStartOf="@+id/circleBackgroundView"
+                    app:layout_constraintTop_toTopOf="@+id/circleBackgroundView"
+                    app:srcCompat="@drawable/creating_order" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Описание товара -->
+
+            <!-- Блок выбора периода аренды -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <TextView
+        android:id="@+id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/white"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="28dp"
+        tools:visibility="invisible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

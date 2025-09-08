@@ -1,0 +1,229 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Логотип -->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="203dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="15dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotip_akkubatt_blur"
+        tools:visibility="invisible" />
+
+    <!-- Основной контейнер для Профиля -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="595dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sign_up_and_login_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2">
+
+        <!-- Текст "Фамилия Имя" -->
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            android:text="Имя Фамилия"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
+
+        <!-- Текст "Номер телефона" -->
+        <TextView
+            android:id="@+id/textViewNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="110dp"
+            android:text="+7xxxxxxxxxx"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <!-- ScrollView для прокрутки карточек и кнопок -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="435dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginBottom="30dp"
+            android:fillViewport="true">
+
+            <!-- Основной контейнер для карточек и кнопок -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Контейнер для карточек -->
+                <LinearLayout
+                    android:id="@+id/cardsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"></LinearLayout>
+
+                <!-- Контейнер для кнопок -->
+                <LinearLayout
+                    android:id="@+id/buttonsFrame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Кнопка "Мой Аккаунт" -->
+                    <FrameLayout
+                        android:id="@+id/myAccountButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="62dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/button_background"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginStart="25dp"
+                            android:text="Аккаунт"
+                            android:textColor="@android:color/black"
+                            android:textSize="17sp" />
+                    </FrameLayout>
+
+                    <!-- Кнопка "История заказов" -->
+                    <FrameLayout
+                        android:id="@+id/myOrdersButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="62dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/button_background"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginStart="25dp"
+                            android:text="История заказов"
+                            android:textColor="@android:color/black"
+                            android:textSize="17sp" />
+                    </FrameLayout>
+
+                    <!-- Кнопка "Поддержка" -->
+                    <FrameLayout
+                        android:id="@+id/helpButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="62dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/button_background"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginStart="25dp"
+                            android:text="Поддержка"
+                            android:textColor="@android:color/black"
+                            android:textSize="17sp" />
+                    </FrameLayout>
+
+                    <!-- Кнопка "FAQ" -->
+                    <FrameLayout
+                        android:id="@+id/faqButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="62dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/button_background"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginStart="25dp"
+                            android:text="Частые вопросы"
+                            android:textColor="@android:color/black"
+                            android:textSize="17sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/usagePolicy"
+                        android:layout_width="match_parent"
+                        android:layout_height="62dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/button_background"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginStart="25dp"
+                            android:text="Пользовательские соглашения"
+                            android:textColor="@android:color/black"
+                            android:textSize="17sp" />
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <!-- Иконка профиля -->
+    <ImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/circle_profile"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user_profile_picture_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Кнопка закрытия -->
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_to_main_button"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

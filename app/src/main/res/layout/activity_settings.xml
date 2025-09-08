@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_to_main_button"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="О приложении"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/backButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backButton" />
+
+
+    <!-- Кнопка "Карты" -->
+    <FrameLayout
+        android:id="@+id/helperButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Поддержка"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"/>
+    </FrameLayout>
+
+    <!-- Кнопка "Паспорт" -->
+    <FrameLayout
+        android:id="@+id/faqButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helperButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Частые вопросы"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"/>
+    </FrameLayout>
+
+    <!-- Кнопка "Сменить пароль" -->
+    <FrameLayout
+        android:id="@+id/tutorialButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@+id/faqButton"
+        tools:layout_editor_absoluteX="85dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Туториал по приложению"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"/>
+    </FrameLayout>
+
+    <!-- Кнопка "Сменить пароль" -->
+    <FrameLayout
+        android:id="@+id/agreementButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@+id/tutorialButton"
+        tools:layout_editor_absoluteX="85dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Пользовательские соглашения"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textViewVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Версия приложения\nx.x.x"
+        android:gravity="center_horizontal"
+        android:textColor="#5B5B5B"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

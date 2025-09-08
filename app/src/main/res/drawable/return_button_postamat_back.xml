@@ -1,0 +1,23 @@
+<!-- res/drawable/button_background.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Слой для тени -->
+    <item
+        android:left="2dp"
+        android:top="2dp"
+        android:right="2dp"
+        android:bottom="2dp">
+        <shape>
+            <solid android:color="#20000000" /> <!-- Цвет тени (черный с прозрачностью) -->
+            <corners android:radius="11dp" /> <!-- Закругленные углы -->
+        </shape>
+    </item>
+
+    <!-- Основной слой кнопки -->
+    <item>
+        <shape>
+            <solid android:color="#FFFFFF" /> <!-- Легкий серый цвет -->
+            <corners android:radius="11dp" /> <!-- Закругленные углы -->
+            <stroke android:width="0.9dp" android:color="#AFAFAF" /> <!-- Обводка -->
+        </shape>
+    </item>
+</layer-list>

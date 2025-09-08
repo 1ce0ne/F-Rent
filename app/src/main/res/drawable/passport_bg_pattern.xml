@@ -1,0 +1,11 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <color android:color="#FAFAFA"/>
+    </item>
+    <item>
+        <bitmap
+            android:src="@drawable/passport_pattern"
+            android:tileMode="repeat"
+            android:alpha="0.03"/>
+    </item>
+</layer-list>

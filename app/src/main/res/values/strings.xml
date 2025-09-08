@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Akku Batt Rent</string>
+    <string name="menu_icon">Menu Icon</string>
+    <string name="logo">Logo</string>
+    <string name="user_icon">Profile Icon</string>
+    <string name="scan_button">Scan</string>
+    <string name="close_button">Close</string>
+    <string name="projectors">Projectors</string>
+    <string name="game_consoles">Game consoles</string>
+    <string name="vacuum_cleaners">Vacuum cleaners</string>
+    <string name="jigsaws">Jigsaws</string>
+    <string name="perforators">Punchers</string>
+    <string name="construction_vacuum_cleaners">Construction vacuum cleaners</string>
+    <string name="more_categories">Other categories</string>
+    <string name="product_image">Изображение товара</string>
+    <string name="location_button">Центрировать на моём местоположении</string>
+
+    <string-array name="compliments">
+        <item>Вы сегодня прекрасны!</item>
+        <item>Ваша улыбка очаровательна!</item>
+        <item>Ваш стиль поистине уникален!</item>
+        <item>Ваша энергия вдохновляет!</item>
+        <item>Вы невероятно талантливы!</item>
+    </string-array>
+</resources>
