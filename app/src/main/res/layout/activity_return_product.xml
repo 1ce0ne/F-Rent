@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- Текст "Товар для возврата" -->
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Товар для возврата"
+        android:textColor="@android:color/black"
+        android:textSize="23sp" />
+
+    <!-- ScrollView для прокрутки товаров -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/postamat_background"
+        android:padding="4dp">
+
+        <!-- Контейнер для товаров -->
+        <LinearLayout
+            android:id="@+id/productsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="@drawable/divider"
+            android:showDividers="middle"
+            android:dividerPadding="4dp" />
+    </ScrollView>
+
+    <!-- Кнопка "Назад" -->
+    <FrameLayout
+        android:id="@+id/backToPostamatButton"
+        android:layout_width="215dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/return_button_postamat_back"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:src="@drawable/back_button" />
+    </FrameLayout>
+</LinearLayout>

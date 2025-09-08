@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Кнопка "Телефон поддержки" -->
+    <FrameLayout
+        android:id="@+id/helperNumberButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backToProfileButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="9dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Телефон поддержки"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Позвонить в службу поддержки"
+            android:textSize="13sp" />
+    </FrameLayout>
+
+    <!-- Кнопка "Инструкция" -->
+    <FrameLayout
+        android:id="@+id/tutorialButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toTelegramButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="9dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Инструкция"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Как пользоваться приложением"
+            android:textSize="13sp" />
+    </FrameLayout>
+
+    <!-- Кнопка "Телеграм бот" -->
+    <FrameLayout
+        android:id="@+id/toTelegramButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helperNumberButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="9dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Телеграм бот"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Написать в телеграм бот поддержки"
+            android:textSize="13sp" />
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/backToProfileButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_to_main_button"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Поддержка"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/backToProfileButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backToProfileButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

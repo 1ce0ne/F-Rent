@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Логотип -->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="180dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotip_akkkubatt" />
+
+    <!-- Основной контейнер для формы входа (изменен на LinearLayout) -->
+    <LinearLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/sign_up_and_login_background"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2">
+
+        <!-- Текст "Номер телефона" -->
+        <TextView
+            android:id="@+id/textPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="30dp"
+            android:text="Номер телефона"
+            android:textColor="@android:color/black"
+            android:textSize="19sp" />
+
+        <!-- Поле для ввода номера телефона -->
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:ems="14"
+            android:inputType="phone"
+            android:paddingStart="7dp"
+            android:maxLength="12"
+            android:textColor="@android:color/black"
+            android:hint="+7" />
+
+        <!-- Текст "Фамилия Имя" -->
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="20dp"
+            android:text="Фамилия Имя"
+            android:textColor="@android:color/black"
+            android:textSize="19sp" />
+
+        <!-- Поле для ввода Имени и Фамилии -->
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:ems="14"
+            android:paddingStart="7dp"
+            android:inputType="text"
+            android:textColor="@android:color/black" />
+
+        <!-- Текст "Пароль" -->
+        <TextView
+            android:id="@+id/textPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="20dp"
+            android:text="Пароль"
+            android:textColor="@android:color/black"
+            android:textSize="19sp" />
+
+        <!-- Поле для ввода пароля с иконками -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp">
+
+            <EditText
+                android:id="@+id/editTextTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="14"
+                android:inputType="textPassword"
+                android:textColor="@android:color/black"
+                android:paddingStart="7dp"
+                android:paddingEnd="40dp" />
+
+            <ImageView
+                android:id="@+id/ping_mark_first"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:layout_toStartOf="@+id/eye_open_first"
+                app:srcCompat="@drawable/ping_mark" />
+
+            <ImageView
+                android:id="@+id/eye_open_first"
+                android:layout_width="25dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                app:srcCompat="@drawable/eye_open" />
+        </RelativeLayout>
+
+        <!-- Подсказки для пароля (теперь внутри LinearLayout) -->
+        <LinearLayout
+            android:id="@+id/passwordHintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="@android:color/white"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/passwordLengthHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✓ Минимум 8 символов"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/passwordDigitHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✓ Минимум 1 цифра"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/passwordSpecialCharHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✓ Минимум 1 спецсимвол"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/passwordLetterHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✓ Только английские буквы"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Текст "Подтверждение пароля" -->
+        <TextView
+            android:id="@+id/textConfirmPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="20dp"
+            android:text="Подтверждение пароля"
+            android:textColor="@android:color/black"
+            android:textSize="19sp" />
+
+        <!-- Поле для подтверждения пароля с иконками -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp">
+
+            <EditText
+                android:id="@+id/editTextTextPassword2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="14"
+                android:inputType="textPassword"
+                android:textColor="@android:color/black"
+                android:paddingStart="7dp"
+                android:paddingEnd="40dp" />
+
+            <ImageView
+                android:id="@+id/ping_mark_second"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:layout_toStartOf="@+id/eye_open_second"
+                app:srcCompat="@drawable/ping_mark" />
+
+            <ImageView
+                android:id="@+id/eye_open_second"
+                android:layout_width="25dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                app:srcCompat="@drawable/eye_open" />
+        </RelativeLayout>
+
+        <!-- Кнопка регистрации -->
+        <FrameLayout
+            android:id="@+id/registerButton"
+            android:layout_width="215dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/sign_up_and_login_button_background"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Регистрация"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Текст "Уже есть аккаунт? Войти!" -->
+    <TextView
+        android:id="@+id/registerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp"
+        android:text="Уже есть аккаунт? Войти!"
+        android:textColor="#1A1A1A"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

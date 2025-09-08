@@ -1,0 +1,58 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Тень с размытием -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#08000000" /> <!-- Цвет тени (легкая прозрачность) -->
+            <size
+                android:width="154dp"
+            android:height="154dp" />
+        </shape>
+    </item>
+    <item android:top="0.5dp" android:bottom="0.5dp" android:left="0.5dp" android:right="0.5dp">
+        <shape android:shape="oval">
+            <solid android:color="#0A000000" /> <!-- Цвет тени (чуть более плотный) -->
+            <size
+                android:width="153dp"
+                android:height="153dp" />
+        </shape>
+    </item>
+    <item android:top="1dp" android:bottom="1dp" android:left="1dp" android:right="1dp">
+        <shape android:shape="oval">
+            <solid android:color="#0C000000" /> <!-- Цвет тени (еще более плотный) -->
+            <size
+                android:width="152dp"
+                android:height="152dp" />
+        </shape>
+    </item>
+    <item android:top="1.5dp" android:bottom="1.5dp" android:left="1.5dp" android:right="1.5dp">
+        <shape android:shape="oval">
+            <solid android:color="#0E000000" /> <!-- Цвет тени (еще более плотный) -->
+            <size
+                android:width="151dp"
+                android:height="151dp" />
+        </shape>
+    </item>
+    <item android:top="2dp" android:bottom="2dp" android:left="2dp" android:right="2dp">
+        <shape android:shape="oval">
+            <solid android:color="#10000000" /> <!-- Цвет тени (еще более плотный) -->
+            <size
+                android:width="150dp"
+                android:height="150dp" />
+        </shape>
+    </item>
+
+    <!-- Основной круг -->
+    <item
+        android:left="2.5dp"
+        android:top="2.5dp"
+        android:right="2.5dp"
+        android:bottom="2.5dp">
+        <shape android:shape="oval">
+            <solid android:color="#FFFFFF" /> <!-- Белый фон -->
+            <stroke android:width="2dp" android:color="@android:color/black" /> <!-- Черная рамка -->
+            <size
+                android:width="145dp"
+            android:height="145dp" />
+        </shape>
+    </item>
+</layer-list>

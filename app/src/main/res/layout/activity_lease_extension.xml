@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Кнопка закрытия -->
+    <Button
+        android:id="@+id/closePostamatButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_to_main_button"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textProlongOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Продление товара"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/closePostamatButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/closePostamatButton" />
+
+
+    <!-- Список товаров -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/postamat_background"
+        android:clipToPadding="true"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/closePostamatButton">
+
+        <!-- Все компоненты внутри NestedScrollView -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <!-- Изображение товара -->
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corners"
+                android:clipToOutline="true"
+                android:contentDescription="@string/product_image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Описание товара -->
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:text="Название товара"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Описание товара -->
+            <TextView
+                android:id="@+id/remainderTimeRent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="30dp"
+                android:padding="8dp"
+                android:text="Осталось:"
+                android:textColor="#4F4F4F"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toTopOf="@+id/productName" />
+
+            <!-- Описание товара -->
+            <TextView
+                android:id="@+id/chooseProlongTarif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
+                android:layout_marginTop="6dp"
+                android:padding="8dp"
+                android:gravity="center"
+                android:text="Выбор тарифа"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productImage" />
+
+            <!-- Описание товара -->
+
+
+            <!-- Блок выбора периода аренды -->
+
+            <Button
+                android:id="@+id/oneHour"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/period_button_selector"
+                android:text="1 час\n100 ₽"
+                app:layout_constraintEnd_toStartOf="@+id/oneDay"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chooseProlongTarif" />
+
+            <Button
+                android:id="@+id/oneDay"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/period_button_selector"
+                android:text="1 день\n500 ₽"
+                app:layout_constraintEnd_toStartOf="@+id/oneMonth"
+                app:layout_constraintStart_toEndOf="@+id/oneHour"
+                app:layout_constraintTop_toBottomOf="@+id/chooseProlongTarif" />
+
+            <Button
+                android:id="@+id/oneMonth"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/period_button_selector"
+                android:text="1 месяц\n10 000 ₽"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/oneDay"
+                app:layout_constraintTop_toBottomOf="@+id/chooseProlongTarif" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Кнопка аренды -->
+    <Button
+        android:id="@+id/prolongProduct"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="85dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/return_button_postamat_back"
+        android:text="Продлить аренду"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+
+    <TextView
+        android:id="@+id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/white"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="28dp"
+        tools:visibility="invisible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

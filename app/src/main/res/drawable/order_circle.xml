@@ -1,0 +1,47 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="512dp"
+    android:height="512dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <group
+        android:pivotX="256"
+        android:pivotY="256"
+        android:rotation="5">
+
+        <!-- Жёлтый круг -->
+        <path
+            android:fillColor="#FFCC00"
+            android:pathData="M256,56
+                              A200,200 0 1,1 255.9,56" />
+
+        <!-- Серая дуга 1 -->
+        <path
+            android:strokeColor="#B3B3B3"
+            android:strokeWidth="28"
+            android:strokeLineCap="round"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M455.2,371.0
+                              A230,230 0 0,1 85.1,409.9" />
+
+        <!-- Серая дуга 2 -->
+        <path
+            android:strokeColor="#B3B3B3"
+            android:strokeWidth="28"
+            android:strokeLineCap="round"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M56.8,371.0
+                              A230,230 0 0,1 208.2,31.0" />
+
+        <!-- Серая дуга 3 -->
+        <path
+            android:strokeColor="#B3B3B3"
+            android:strokeWidth="28"
+            android:strokeLineCap="round"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M256.0,26.0
+                              A230,230 0 0,1 474.7,327.1" />
+
+    </group>
+
+</vector>

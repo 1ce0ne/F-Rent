@@ -1,0 +1,112 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Кнопка закрытия -->
+    <Button
+        android:id="@+id/backToProfileButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_to_main_button"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/confidens"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/public_offert">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="9dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Политика конфиденциальности"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Открыть политику конфиденциальности"
+            android:textSize="13sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/public_offert"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backToProfileButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="9dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Публичная оферта"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Открыть публичную оферту"
+            android:textSize="13sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textViewSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Пользовательские\nсоглашения"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/backToProfileButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backToProfileButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

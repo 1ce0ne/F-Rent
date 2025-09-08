@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <View
+        android:id="@+id/centerMarker"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="15dp" />
+
+    <!-- DevSquad logo - будет появляться и исчезать -->
+    <ImageView
+        android:id="@+id/devSquadImage"
+        android:layout_width="190dp"
+        android:layout_height="90dp"
+        android:layout_above="@id/centerMarker"
+        android:layout_centerHorizontal="true"
+        android:alpha="0"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/dev_squad" />
+
+    <!-- Akkubatt logo - появится после DevSquad и останется -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="190dp"
+        android:layout_height="90dp"
+        android:layout_above="@id/centerMarker"
+        android:layout_centerHorizontal="true"
+        android:alpha="0"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/logotip_akkkubatt" />
+
+</RelativeLayout>

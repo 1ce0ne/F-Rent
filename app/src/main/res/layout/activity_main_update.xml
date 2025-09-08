@@ -1,0 +1,235 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Карта -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="NotSibling" />
+
+    <!-- Кнопка меню -->
+    <ImageButton
+        android:id="@+id/category_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="@string/menu_icon"
+        android:src="@drawable/all_categories_button"
+        android:scaleType="fitCenter"
+        android:padding="0dp" />
+
+    <!-- Кнопка пользователя (меню) -->
+    <ImageButton
+        android:id="@+id/menu_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="14dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/user_icon"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/menu_icon" />
+
+    <!-- Кнопка профиля пользователя -->
+    <ImageButton
+        android:id="@+id/user_profile_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/menu_icon"
+        android:layout_alignStart="@+id/menu_icon"
+        android:layout_alignEnd="@+id/menu_icon"
+        android:layout_marginTop="5dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/user_icon"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/user_profile_ic"
+        android:visibility="invisible"
+        android:alpha="0"/>
+
+    <!-- Кнопка истории заказов -->
+    <ImageButton
+        android:id="@+id/order_history_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/user_profile_icon"
+        android:layout_alignStart="@+id/menu_icon"
+        android:layout_alignEnd="@+id/menu_icon"
+        android:layout_marginTop="5dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/user_icon"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/order_history_ic"
+        android:visibility="invisible"
+        android:alpha="0"/>
+
+    <!-- Кнопка настроек -->
+    <ImageButton
+        android:id="@+id/settings_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/menu_icon"
+        android:layout_alignBottom="@+id/menu_icon"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@+id/menu_icon"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/user_icon"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/settings_ic"
+        android:visibility="invisible"
+        android:alpha="0"/>
+
+    <ImageButton
+        android:id="@+id/location_button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/location_button"
+        android:src="@drawable/location_button"
+        android:scaleType="fitCenter"
+        android:visibility="visible" />
+
+
+    <!-- FrameLayout с View и ImageButton снизу по центру карты -->
+    <FrameLayout
+        android:id="@+id/scanButton"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="25dp">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/scan_button"
+            android:src="@drawable/skan_button_hight"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:visibility="invisible"
+            tools:visibility="invisible" />
+
+    </FrameLayout>
+
+    <!-- Информация о постамате -->
+    <LinearLayout
+        android:id="@+id/postamat_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/postamat_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/postamat_products"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+
+        <ImageButton
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/close_button"
+            android:src="@drawable/close_button_icon" />
+
+        <TextView
+            android:id="@+id/postamat_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/postamat_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/postamat_products"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <!-- Информация о QR-коде -->
+    <LinearLayout
+        android:id="@+id/qr_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/qr_close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/close_button"
+            android:src="@drawable/close_button_icon" />
+
+        <TextView
+            android:id="@+id/qr_info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/compliment_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/compliment_background"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:elevation="8dp"
+        android:padding="8dp"/>
+
+    <FrameLayout
+        android:id="@+id/active_orders_container"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_above="@id/scanButton"
+        android:visibility="invisible">
+
+        <include layout="@layout/fragment_order_card_for_main_menu"/>
+    </FrameLayout>
+</RelativeLayout>

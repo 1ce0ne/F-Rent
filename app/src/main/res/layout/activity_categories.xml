@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Надпись "Категории" -->
+    <TextView
+        android:id="@+id/textBelowLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Категории"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Кнопка закрытия -->
+    <Button
+        android:id="@+id/closeCategoryButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_to_main_button"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
+
+    <!-- Поисковая панель с отступами -->
+    <FrameLayout
+        android:id="@+id/searchFrame"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/sign_up_and_login_button_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBelowLogo" >
+
+        <ImageView
+            android:id="@+id/search_button_img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="end|center_vertical"
+            app:srcCompat="@drawable/search_button" />
+    </FrameLayout>
+
+    <!-- Основной контейнер с категориями -->
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchFrame">
+
+        <!-- Обертывание в ScrollView -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Категория: Электроника -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Электроника"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <!-- Кнопка "Проекторы" -->
+                <FrameLayout
+                    android:id="@+id/projectorsButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Проекторы"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/projector_image"
+                        android:layout_width="91dp"
+                        android:layout_height="41dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/projector" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Кнопка "Игровые приставки" -->
+                <FrameLayout
+                    android:id="@+id/consolesButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Игровые приставки"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/game_console_image"
+                        android:layout_width="91dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/game_console" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Категория: Бытовая техника -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Бытовая техника"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <!-- Кнопка "Пылесосы" -->
+                <FrameLayout
+                    android:id="@+id/vacuumCleanerButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Пылесосы"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/vacuum_cleaner_image"
+                        android:layout_width="91dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/vacuum_cleaner" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Кнопка "Мойка высокого давления" -->
+                <FrameLayout
+                    android:id="@+id/pressureWasherButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Мойка высокого давления"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/pressure_washer_image"
+                        android:layout_width="100dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/pressure_washer" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Категория: Строительные инструменты -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Строительные инструменты"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <!-- Кнопка "Лобзики" -->
+                <FrameLayout
+                    android:id="@+id/lobzikiButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Лобзики"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/jigsaws_image"
+                        android:layout_width="91dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/jigsaws" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Кнопка "Перфораторы" -->
+                <FrameLayout
+                    android:id="@+id/perforatorsButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Перфораторы"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/punchers_image"
+                        android:layout_width="91dp"
+                        android:layout_height="39dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/punchers" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Кнопка "Строительные пылесосы" -->
+                <FrameLayout
+                    android:id="@+id/stroitVacuumCleanerButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Строительные пылесосы"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/constrution_vacuum_cleaner_image"
+                        android:layout_width="91dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/constrution_vacuum_cleaner" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Кнопка "Шуруповерты" -->
+                <FrameLayout
+                    android:id="@+id/screwDriverButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Шуруповерты"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/screwdriver_image"
+                        android:layout_width="91dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/screwdriver" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Кнопка "Фрезеры" -->
+                <FrameLayout
+                    android:id="@+id/millingMachineButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Фрезеры"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/milling_machine_image"
+                        android:layout_width="100dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/milling_machine" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Кнопка "Винтоверт" -->
+                <FrameLayout
+                    android:id="@+id/vintovertButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Винтоверт"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/vintovert_image"
+                        android:layout_width="100dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/vintovert" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Категория: Садовые инструменты -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Садовые инструменты"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <!-- Кнопка "Цепная пила" -->
+                <FrameLayout
+                    android:id="@+id/chainSawButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Цепные пилы"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/chain_saw_image"
+                        android:layout_width="100dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/chain_saw" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Кнопка "Воздуходувы" -->
+                <FrameLayout
+                    android:id="@+id/airCompressorButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Воздуходувы"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/air_compressor_image"
+                        android:layout_width="100dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/air_compressor" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+                <!-- Кнопка "Триммер" -->
+                <FrameLayout
+                    android:id="@+id/grassTrimmerButton"
+                    android:layout_width="330dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginTop="2.5dp"
+                        android:text="Триммер"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/grass_trimmer_image"
+                        android:layout_width="100dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/grass_trimmer" />
+
+                    <FrameLayout
+                        android:layout_width="280dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:background="#000000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

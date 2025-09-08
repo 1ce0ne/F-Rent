@@ -1,0 +1,57 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Тень с размытием -->
+    <item>
+        <shape>
+            <solid android:color="#08000000" /> <!-- Цвет тени (легкая прозрачность) -->
+            <corners android:radius="18dp" /> <!-- Скругление углов -->
+        </shape>
+    </item>
+    <item android:top="0.5dp" android:bottom="0.5dp" android:left="0.5dp" android:right="0.5dp">
+        <shape>
+            <solid android:color="#0A000000" /> <!-- Цвет тени (чуть более плотный) -->
+            <corners android:radius="18dp" /> <!-- Скругление углов -->
+        </shape>
+    </item>
+    <item android:top="1dp" android:bottom="1dp" android:left="1dp" android:right="1dp">
+        <shape>
+            <solid android:color="#0C000000" /> <!-- Цвет тени (еще более плотный) -->
+            <corners android:radius="18dp" /> <!-- Скругление углов -->
+        </shape>
+    </item>
+    <item android:top="1.5dp" android:bottom="1.5dp" android:left="1.5dp" android:right="1.5dp">
+        <shape>
+            <solid android:color="#0E000000" /> <!-- Цвет тени (еще более плотный) -->
+            <corners android:radius="18dp" /> <!-- Скругление углов -->
+        </shape>
+    </item>
+    <item android:top="2dp" android:bottom="2dp" android:left="2dp" android:right="2dp">
+        <shape>
+            <solid android:color="#10000000" /> <!-- Цвет тени (еще более плотный) -->
+            <corners android:radius="18dp" /> <!-- Скругление углов -->
+        </shape>
+    </item>
+    <item android:top="2.5dp" android:bottom="2.5dp" android:left="2.5dp" android:right="2.5dp">
+        <shape>
+            <solid android:color="#12000000" /> <!-- Цвет тени (еще более плотный) -->
+            <corners android:radius="18dp" /> <!-- Скругление углов -->
+        </shape>
+    </item>
+    <item android:top="3dp" android:bottom="3dp" android:left="3dp" android:right="3dp">
+        <shape>
+            <solid android:color="#15000000" /> <!-- Цвет тени (максимально плотный) -->
+            <corners android:radius="18dp" /> <!-- Скругление углов -->
+        </shape>
+    </item>
+
+    <!-- Основной фон -->
+    <item
+        android:left="2.5dp"
+        android:top="2.5dp"
+        android:right="2.5dp"
+        android:bottom="2.5dp">
+        <shape>
+            <solid android:color="@android:color/white" /> <!-- Белый фон -->
+            <corners android:radius="18dp" /> <!-- Скругление углов -->
+        </shape>
+    </item>
+</layer-list>

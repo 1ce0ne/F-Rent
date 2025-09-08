@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_to_main_button"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="Фамилия Имя"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backButton" />
+
+    <!-- Текст "Номер телефона" -->
+    <TextView
+        android:id="@+id/textViewNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="+7 (xxx) xxx xx-xx"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+
+    <!-- Кнопка "Карты" -->
+    <FrameLayout
+        android:id="@+id/myCardsButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="85dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@+id/backButton"
+        tools:layout_editor_absoluteX="80dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Карты"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+    </FrameLayout>
+
+    <!-- Кнопка "Паспорт" -->
+    <FrameLayout
+        android:id="@+id/myPassportButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="18dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="85dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@+id/myCardsButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Паспорт"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/line_profile"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="18dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/myPassportButton"
+        app:layout_constraintStart_toStartOf="@+id/myPassportButton"
+        app:layout_constraintTop_toBottomOf="@+id/myPassportButton">
+    </FrameLayout>
+
+    <!-- Кнопка "Сменить пароль" -->
+    <FrameLayout
+        android:id="@+id/changePasswordButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:layout_marginHorizontal="85dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@+id/line_profile"
+        tools:layout_editor_absoluteX="85dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Сменить пароль"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/line_profile_2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginHorizontal="50dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/myPassportButton"
+        app:layout_constraintStart_toStartOf="@+id/myPassportButton"
+        app:layout_constraintTop_toBottomOf="@+id/changePasswordButton">
+    </FrameLayout>
+
+    <!-- Кнопка "Сменить пароль" -->
+    <FrameLayout
+        android:id="@+id/logoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="85dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toBottomOf="@+id/line_profile_2"
+        tools:layout_editor_absoluteX="85dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="Выйти из аккаунта"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
