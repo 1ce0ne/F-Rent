@@ -8,8 +8,8 @@ def set_signed_cookie(signer: Signer, resp, key, value):
         key=key,
         value=signed_value,
         httponly=True,
-        secure=False,
-        samesite='Lax'
+        secure=True,
+        samesite='Strict'
     )
     return resp
 
