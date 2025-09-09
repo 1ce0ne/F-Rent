@@ -45,9 +45,9 @@
     <!-- ========== ПРИЛОЖЕНИЕ ========== -->
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/akku_logo"
+        android:icon="@mipmap/frent_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/akku_logo"
+        android:roundIcon="@mipmap/frent_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
