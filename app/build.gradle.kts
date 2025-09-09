@@ -6,35 +6,17 @@ android {
     namespace = "com.example.akkubattrent"
     compileSdk = 35
 
-//    buildFeatures {
-//        buildConfig = true  // ← ДОБАВЬ ЭТУ СТРОЧКУ
-//    }
 
     defaultConfig {
         applicationId = "com.example.akkubattrent"
         minSdk = 31
         targetSdk = 35
         versionCode = 1
-        versionName = "2.0.0.0 -BETA"
+        versionName = "0.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-//    buildTypes {
-//        debug {
-//            buildConfigField("String", "API_BASE_URL", "\"https://akkubatt-work.ru/\"")
-//            buildConfigField("String", "API_KEY", "\"o4bAvyn0ZXaFeLDr89lk\"")
-//        }
-//        release {
-//            isMinifyEnabled = false
-//            proguardFiles(
-//                getDefaultProguardFile("proguard-android-optimize.txt"),
-//                "proguard-rules.pro"
-//            )
-//            buildConfigField("String", "API_BASE_URL", "\"https://akkubatt-work.ru/\"")
-//            buildConfigField("String", "API_KEY", "\"o4bAvyn0ZXaFeLDr89lk\"")
-//        }
-//    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
