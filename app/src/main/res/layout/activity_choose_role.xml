@@ -35,40 +35,6 @@
         app:srcCompat="@drawable/back_button" />
 
     <!-- Текст внизу -->
-    <LinearLayout
-        android:id="@+id/signUpButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="130dp"
-        android:clickable="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/textView">
-
-        <TextView
-            android:id="@+id/textIfNotHaveAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:clickable="true"
-            android:fontFamily="@font/montserrat_light"
-            android:gravity="center"
-            android:text="Есть вопросы?"
-            android:textColor="#8A8A8A"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/textSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="4dp"
-            android:clickable="true"
-            android:fontFamily="@font/montserrat_light"
-            android:gravity="center"
-            android:text="Задать вопрос"
-            android:textColor="#000000"
-            android:textSize="13sp" />
-
-    </LinearLayout>
 
     <!-- Основной контент посередине (растягивается) -->
     <FrameLayout
@@ -77,10 +43,10 @@
         android:layout_height="54dp"
 
         android:layout_marginHorizontal="25dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/entrance_with_phone"
         android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/signUpButton">
+        app:layout_constraintBottom_toTopOf="@+id/textView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

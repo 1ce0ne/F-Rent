@@ -8,6 +8,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -35,10 +40,6 @@
 
         <activity
             android:name=".EntranceInApp.EntranceInApp"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name=".EntranceInApp.LoginNumber"
             android:exported="true">
         </activity>
         <activity
@@ -77,6 +78,41 @@
             android:name=".ProductCards.ProductCardKostum"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".ProductCards.ProductCardDrill"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ProductCards.ProductCardPlayStation"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".Products.Basket"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".UserProfileBasic"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".UserProfileSettings"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".UserProfileSeller"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".UserProfilePassport"
+            android:exported="false" />
+
+        <activity
+            android:name=".Products.ReturnProduct"
+            android:exported="true">
+        </activity>
+
+
 
         <meta-data
             android:name="preloaded_fonts"

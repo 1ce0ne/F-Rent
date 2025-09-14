@@ -178,6 +178,7 @@
                         android:orientation="horizontal">
 
                         <FrameLayout
+                            android:id="@+id/reklama_1"
                             android:layout_width="358dp"
                             android:layout_height="93dp"
                             android:layout_marginStart="27dp"
@@ -224,6 +225,7 @@
                         </FrameLayout>
 
                         <FrameLayout
+                            android:id="@+id/reklama_2"
                             android:layout_width="358dp"
                             android:layout_height="93dp"
                             android:layout_marginEnd="8dp"
@@ -237,21 +239,84 @@
                                     android:id="@+id/textView7"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Негр"
-                                    android:textColor="@color/white"
-                                    android:textSize="20dp"
+                                    android:layout_marginStart="17dp"
+                                    android:layout_marginBottom="17dp"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:lineSpacingExtra="-2sp"
+                                    android:text="Скидка −30% при аренде 3-x\nи более вещей сразу"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/imageDiscond2"
+                                    android:layout_width="16dp"
+                                    android:layout_height="0dp"
+                                    app:layout_constraintBottom_toTopOf="@+id/textView7"
+                                    app:layout_constraintStart_toStartOf="@+id/textView7"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/discount" />
+
+                                <ImageView
+                                    android:id="@+id/vectorForDiscount2"
+                                    android:layout_width="66dp"
+                                    android:layout_height="67dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintStart_toEndOf="@+id/textView7"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/box" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </FrameLayout>
 
                         <FrameLayout
+                            android:id="@+id/reklama_3"
                             android:layout_width="358dp"
                             android:layout_height="93dp"
                             android:layout_marginEnd="27dp"
-                            android:background="@drawable/sale_background" />
+                            android:background="@drawable/sale_background"
+
+                            >
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/textView8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="17dp"
+                                android:layout_marginBottom="17dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:lineSpacingExtra="-2sp"
+                                android:text="1 день бесплатно при\nаренде от 3 дней"
+                                android:textColor="@color/black"
+                                android:textSize="13sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/imageDiscond3"
+                                android:layout_width="16dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                                app:layout_constraintStart_toStartOf="@+id/textView8"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/discount" />
+
+                            <ImageView
+                                android:id="@+id/vectorForDiscount3"
+                                android:layout_width="110dp"
+                                android:layout_height="61dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/textView8"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/vector_discount" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>/>
+
+                        </FrameLayout>
                     </LinearLayout>
                 </HorizontalScrollView>
 
@@ -384,7 +449,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="Инструменты"
+                                        android:text="Электроника"
                                         android:textColor="@color/black"
                                         android:textSize="12dp"
                                         app:layout_constraintBottom_toBottomOf="parent"
@@ -618,10 +683,10 @@
                                         app:layout_constraintTop_toTopOf="parent">
                                         <ImageView
                                             android:id="@+id/product_image_1"
-                                            android:layout_width="wrap_content"
+                                            android:layout_width="200dp"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_horizontal|top"
-                                            app:srcCompat="@drawable/platye" />
+                                            app:srcCompat="@drawable/vacuum_cleaner" />
 
                                         <FrameLayout
                                             android:layout_width="47dp"
@@ -648,7 +713,7 @@
                                         android:layout_marginStart="13dp"
                                         android:layout_marginTop="7dp"
                                         android:fontFamily="@font/montserrat_light"
-                                        android:text="Одежда"
+                                        android:text="Инструменты"
                                         android:textColor="#858585"
                                         android:textSize="11sp"
                                         app:layout_constraintStart_toStartOf="parent"
@@ -658,7 +723,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="Платье Monclear"
+                                        android:text="Пылесос"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintStart_toStartOf="@+id/product_category_1"
@@ -680,7 +745,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="350₽"
+                                        android:text="300₽"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintEnd_toEndOf="@+id/product_rent_period_1"
@@ -707,13 +772,13 @@
                                         app:layout_constraintTop_toTopOf="parent">
                                         <ImageView
                                             android:id="@+id/product_image_2"
-                                            android:layout_width="wrap_content"
+                                            android:layout_width="200dp"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_horizontal|top"
-                                            app:srcCompat="@drawable/kostum" />
+                                            app:srcCompat="@drawable/drel_nahu" />
 
                                         <FrameLayout
-                                            android:layout_width="73dp"
+                                            android:layout_width="53dp"
                                             android:layout_height="15dp"
                                             android:layout_marginTop="15dp"
                                             android:layout_marginStart="10dp"
@@ -726,7 +791,7 @@
                                                 android:layout_gravity="center"
                                                 android:fontFamily="@font/montserrat_light"
                                                 android:textColor="@color/black"
-                                                android:text="лучшая цена"
+                                                android:text="акция"
                                                 android:textSize="8sp" />
                                         </FrameLayout>
                                     </FrameLayout>
@@ -737,7 +802,7 @@
                                         android:layout_marginStart="13dp"
                                         android:layout_marginTop="7dp"
                                         android:fontFamily="@font/montserrat_light"
-                                        android:text="Одежда"
+                                        android:text="Инструменты"
                                         android:textColor="#858585"
                                         android:textSize="11sp"
                                         app:layout_constraintStart_toStartOf="parent"
@@ -747,7 +812,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="Костюм Diesel"
+                                        android:text="Дрель"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintStart_toStartOf="@+id/product_category_2"
@@ -769,7 +834,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="870₽"
+                                        android:text="340₽"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintEnd_toEndOf="@+id/product_rent_period_2"
@@ -804,7 +869,7 @@
                                         app:layout_constraintTop_toTopOf="parent">
                                         <ImageView
                                             android:id="@+id/product_image_3"
-                                            android:layout_width="wrap_content"
+                                            android:layout_width="200dp"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_horizontal|top"
                                             app:srcCompat="@drawable/shurupovert" />
@@ -848,7 +913,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="400₽"
+                                        android:text="310₽"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintEnd_toEndOf="@+id/product_rent_period_3"
@@ -874,7 +939,7 @@
                                         app:layout_constraintTop_toTopOf="parent">
                                         <ImageView
                                             android:id="@+id/product_image_4"
-                                            android:layout_width="wrap_content"
+                                            android:layout_width="200dp"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_horizontal|top"
                                             app:srcCompat="@drawable/pila" />
@@ -918,7 +983,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="450₽"
+                                        android:text="370₽"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintEnd_toEndOf="@+id/product_rent_period_4"
@@ -996,7 +1061,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="550₽"
+                                        android:text="450₽"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintEnd_toEndOf="@+id/product_rent_period_5"
@@ -1022,7 +1087,7 @@
                                         app:layout_constraintTop_toTopOf="parent">
                                         <ImageView
                                             android:id="@+id/product_image_6"
-                                            android:layout_width="wrap_content"
+                                            android:layout_width="200dp"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_horizontal|top"
                                             app:srcCompat="@drawable/projector" />
@@ -1066,7 +1131,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="350₽"
+                                        android:text="320₽"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintEnd_toEndOf="@+id/product_rent_period_6"
@@ -1100,10 +1165,10 @@
                                         app:layout_constraintTop_toTopOf="parent">
                                         <ImageView
                                             android:id="@+id/product_image_7"
-                                            android:layout_width="wrap_content"
+                                            android:layout_width="200dp"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_horizontal|top"
-                                            app:srcCompat="@drawable/boat" />
+                                            app:srcCompat="@drawable/jigsaw" />
                                     </FrameLayout>
                                     <TextView
                                         android:id="@+id/product_category_7"
@@ -1112,7 +1177,7 @@
                                         android:layout_marginStart="13dp"
                                         android:layout_marginTop="7dp"
                                         android:fontFamily="@font/montserrat_light"
-                                        android:text="Спорт и отдых"
+                                        android:text="Инструменты"
                                         android:textColor="#858585"
                                         android:textSize="11sp"
                                         app:layout_constraintStart_toStartOf="parent"
@@ -1122,7 +1187,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="Лодка"
+                                        android:text="Лобзик"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintStart_toStartOf="@+id/product_category_7"
@@ -1144,7 +1209,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="650₽"
+                                        android:text="330₽"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintEnd_toEndOf="@+id/product_rent_period_7"
@@ -1170,10 +1235,10 @@
                                         app:layout_constraintTop_toTopOf="parent">
                                         <ImageView
                                             android:id="@+id/product_image_8"
-                                            android:layout_width="wrap_content"
+                                            android:layout_width="200dp"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_horizontal|top"
-                                            app:srcCompat="@drawable/palatka" />
+                                            app:srcCompat="@drawable/circle_pila" />
                                     </FrameLayout>
                                     <TextView
                                         android:id="@+id/product_category_8"
@@ -1182,7 +1247,7 @@
                                         android:layout_marginStart="13dp"
                                         android:layout_marginTop="7dp"
                                         android:fontFamily="@font/montserrat_light"
-                                        android:text="Спорт и отдых"
+                                        android:text="Инструменты"
                                         android:textColor="#858585"
                                         android:textSize="11sp"
                                         app:layout_constraintStart_toStartOf="parent"
@@ -1192,7 +1257,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="Палатка"
+                                        android:text="Пила"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintStart_toStartOf="@+id/product_category_8"
@@ -1204,7 +1269,7 @@
                                         android:layout_marginTop="7dp"
                                         android:layout_marginEnd="13dp"
                                         android:fontFamily="@font/montserrat_light"
-                                        android:text="Сутки"
+                                        android:text="Пила"
                                         android:textColor="#858585"
                                         android:textSize="11sp"
                                         app:layout_constraintEnd_toEndOf="parent"
@@ -1214,7 +1279,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="410₽"
+                                        android:text="340₽"
                                         android:textColor="#000000"
                                         android:textSize="12sp"
                                         app:layout_constraintEnd_toEndOf="@+id/product_rent_period_8"

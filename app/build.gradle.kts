@@ -11,7 +11,7 @@ android {
         minSdk = 31
         targetSdk = 36
         versionCode = 1
-        versionName = "Developer Version"
+        versionName = "Beta Test Version"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,6 +39,7 @@ dependencies {
     implementation(libs.constraintlayout)
 
     implementation("org.osmdroid:osmdroid-android:6.1.12")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

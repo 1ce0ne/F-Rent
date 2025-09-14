@@ -27,50 +27,41 @@ public class EntranceInApp extends AppCompatActivity {
         FrameLayout loginWithPhone = findViewById(R.id.login_with_phone);
         TextView textLoginWithPhone = findViewById(R.id.textLoginWithPhone);
 
-        FrameLayout loginWithTelegram = findViewById(R.id.login_with_telegram);
-        TextView textLoginWithTelegram = findViewById(R.id.textLoginWithTelegram);
-        // ImageView в данном случае
-        View telegramIcon = findViewById(R.id.telegram_icon);
-
-        LinearLayout signUpButton = findViewById(R.id.signUpButton);
-        TextView textIfNotHaveAccount = findViewById(R.id.textIfNotHaveAccount);
-        TextView textSignUp = findViewById(R.id.textSignUp);
+//
+//        LinearLayout signUpButton = findViewById(R.id.signUpButton);
+//        TextView textIfNotHaveAccount = findViewById(R.id.textIfNotHaveAccount);
+//        TextView textSignUp = findViewById(R.id.textSignUp);
 
         ImageView miniLogo = findViewById(R.id.miniLogo);
 
         // Обработчик для входа по телефону
         View.OnClickListener phoneLoginListener = v -> {
-            Intent intent = new Intent(EntranceInApp.this, LoginNumber.class);
+            Intent intent = new Intent(EntranceInApp.this, SignUp.class);
             startActivity(intent);
             finish();
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         };
 
         loginWithPhone.setOnClickListener(phoneLoginListener);
         textLoginWithPhone.setOnClickListener(phoneLoginListener);
 
-        // Обработчик для входа через Telegram
-        View.OnClickListener telegramLoginListener = v -> {
-            Toast.makeText(EntranceInApp.this, "Абоба", Toast.LENGTH_SHORT).show();
-        };
 
-        loginWithTelegram.setOnClickListener(telegramLoginListener);
-        textLoginWithTelegram.setOnClickListener(telegramLoginListener);
-        telegramIcon.setOnClickListener(telegramLoginListener);
-
-        View.OnClickListener SignUpListener = v -> {
-            Intent intent = new Intent(EntranceInApp.this, SignUp.class);
-            startActivity(intent);
-            finish();
-        };
-
-        signUpButton.setOnClickListener(SignUpListener);
-        textIfNotHaveAccount.setOnClickListener(SignUpListener);
-        textSignUp.setOnClickListener(SignUpListener);
+//        View.OnClickListener SignUpListener = v -> {
+//            Intent intent = new Intent(EntranceInApp.this, SignUp.class);
+//            startActivity(intent);
+//            finish();
+//            overridePendingTransition(R.anim.slide_in_right_login, 0);
+//        };
+//
+//        signUpButton.setOnClickListener(SignUpListener);
+//        textIfNotHaveAccount.setOnClickListener(SignUpListener);
+//        textSignUp.setOnClickListener(SignUpListener);
 
         View.OnClickListener gotoMain = v -> {
             Intent intent = new Intent(EntranceInApp.this, MainActivity.class);
             startActivity(intent);
             finish();
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         };
         miniLogo.setOnClickListener(gotoMain);
     }

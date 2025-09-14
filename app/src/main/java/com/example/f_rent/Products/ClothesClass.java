@@ -20,12 +20,9 @@ public class ClothesClass extends AppCompatActivity {
 
         buttonBack = findViewById(R.id.buttonBack);
 
-        // Устанавливаем обработчик клика на кнопку "Назад"
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
+        buttonBack.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(0, R.anim.slide_out_right_signup);
         });
     }
 }

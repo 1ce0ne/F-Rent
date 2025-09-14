@@ -2,6 +2,7 @@ package com.example.f_rent.EntranceInApp;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
@@ -27,6 +28,7 @@ public class SignUp extends AppCompatActivity {
     private String hintTextPhone = "(987)-654-32-10";
     private int hintColor = Color.parseColor("#858585");
     private int textColor = Color.BLACK;
+    private SharedPreferences sharedPreferences;
 
     private final ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
@@ -43,6 +45,9 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        // Инициализация SharedPreferences
+        sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
 
         initViews();
         setupNameField();
@@ -162,6 +167,8 @@ public class SignUp extends AppCompatActivity {
     private void setupClickListeners() {
         View.OnClickListener phoneLoginListener = v -> {
             if (validateInputs()) {
+                // Сохранение данных в SharedPreferences перед переходом
+                saveUserData();
                 checkAndRequestNotificationPermission();
             }
         };
@@ -169,14 +176,15 @@ public class SignUp extends AppCompatActivity {
         findViewById(R.id.login_with_phone).setOnClickListener(phoneLoginListener);
         findViewById(R.id.textLoginWithPhone).setOnClickListener(phoneLoginListener);
 
-        View.OnClickListener goToLoginListener = v -> {
-            startActivity(new Intent(SignUp.this, EntranceInApp.class));
-            finish();
-        };
-
-        findViewById(R.id.signUpButton).setOnClickListener(goToLoginListener);
-        findViewById(R.id.textIfNotHaveAccount).setOnClickListener(goToLoginListener);
-        findViewById(R.id.textSignUp).setOnClickListener(goToLoginListener);
+//        View.OnClickListener goToLoginListener = v -> {
+//            startActivity(new Intent(SignUp.this, EntranceInApp.class));
+//            finish();
+//            overridePendingTransition(0, R.anim.slide_out_right_signup);
+//        };
+//
+//        findViewById(R.id.signUpButton).setOnClickListener(goToLoginListener);
+//        findViewById(R.id.textIfNotHaveAccount).setOnClickListener(goToLoginListener);
+//        findViewById(R.id.textSignUp).setOnClickListener(goToLoginListener);
     }
 
     private void checkAndRequestNotificationPermission() {
@@ -197,6 +205,7 @@ public class SignUp extends AppCompatActivity {
     private void navigateToVerification() {
         startActivity(new Intent(SignUp.this, VerificationCodeSignUp.class));
         finish();
+        overridePendingTransition(R.anim.slide_in_right_login, 0);
     }
 
     private boolean validateInputs() {
@@ -258,5 +267,19 @@ public class SignUp extends AppCompatActivity {
         }
 
         return formatted.append(digits).toString();
+    }
+
+    // Метод для сохранения данных пользователя в SharedPreferences
+    private void saveUserData() {
+        String userName = editTextName.getText().toString().trim();
+        String phoneNumber = editTextNumber.getText().toString().trim();
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("user_name", userName);
+        editor.putString("phone_number", phoneNumber);
+        editor.apply();
+
+        // Для отладки можно добавить Toast
+//        Toast.makeText(this, "Данные сохранены", Toast.LENGTH_SHORT).show();
     }
 }

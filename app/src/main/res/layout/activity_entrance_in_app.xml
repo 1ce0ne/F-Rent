@@ -133,7 +133,7 @@
                 android:clickable="true"
                 android:background="@drawable/entrance_with_phone"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="15dp">
+                android:layout_marginBottom="55dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -159,90 +159,8 @@
 
 
             <!-- Основной контент посередине (растягивается) -->
-            <FrameLayout
-                android:id="@+id/login_with_telegram"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_weight="0"
-
-                android:clickable="true"
-                android:background="@drawable/entrance_with_telegram"
-                android:layout_marginBottom="15dp"
-
-                >
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/telegram_icon"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-
-                        android:clickable="true"
-
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textLoginWithTelegram"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintHorizontal_chainStyle="packed"
-
-                        app:srcCompat="@drawable/ic_telegram" />
-
-                    <TextView
-                        android:id="@+id/textLoginWithTelegram"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="Войти с помощью Telegram"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-
-                        android:clickable="true"
-                        android:layout_marginStart="10dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/telegram_icon"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/telegram_icon"
-                        app:layout_constraintTop_toTopOf="@+id/telegram_icon" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </FrameLayout>
 
             <!-- Текст внизу -->
-            <LinearLayout
-                android:id="@+id/signUpButton"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:clickable="true">
-
-                <TextView
-                    android:id="@+id/textIfNotHaveAccount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:clickable="true"
-                    android:fontFamily="@font/montserrat_light"
-                    android:gravity="center"
-                    android:text="Еще нет аккаунта?"
-                    android:textColor="#8A8A8A"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textSignUp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:clickable="true"
-                    android:gravity="center"
-                    android:text="Зарегистрироваться"
-                    android:fontFamily="@font/montserrat_light"
-                    android:textColor="#000000"
-                    android:textSize="12sp"
-                    android:layout_marginStart="4dp" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

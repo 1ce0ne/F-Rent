@@ -2,6 +2,7 @@ package com.example.f_rent.EntranceInApp;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ import java.util.Random;
 public class VerificationCodeSignUp extends AppCompatActivity {
 
     private static final String CHANNEL_ID = "SMS_CHANNEL";
+    private static final String EXTRA_VERIFICATION_CODE = "verification_code";
+    private static final int NOTIFICATION_ID = 1001;
 
     private EditText firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber;
     private FrameLayout loginButton;
@@ -46,7 +49,14 @@ public class VerificationCodeSignUp extends AppCompatActivity {
         initViews();
         setupTextWatchers();
         createNotificationChannel();
-        generateAndShowCode();
+
+        // Проверяем, есть ли код из уведомления
+        checkIntentForCode();
+
+        if (generatedCode == null) {
+            generateAndShowCode();
+        }
+
         setupClickListeners();
         updateButtonState();
         startTimer();
@@ -189,7 +199,7 @@ public class VerificationCodeSignUp extends AppCompatActivity {
             code.append(random.nextInt(10));
         }
         generatedCode = code.toString();
-        showNotification("Ваш код подтверждения: " + generatedCode);
+        showNotification("Ваш код подтверждения: " + generatedCode + "\nНажмите для автоматической вставки.");
         lastSendTime = System.currentTimeMillis();
     }
 
@@ -206,14 +216,57 @@ public class VerificationCodeSignUp extends AppCompatActivity {
     }
 
     private void showNotification(String message) {
+        // Создаем Intent для открытия активности с передачей кода
+        Intent intent = new Intent(this, VerificationCodeSignUp.class);
+        intent.putExtra(EXTRA_VERIFICATION_CODE, generatedCode);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                this,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("SMS")
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pendingIntent) // Устанавливаем обработчик клика
                 .setAutoCancel(true);
 
-        getSystemService(NotificationManager.class).notify(new Random().nextInt(), builder.build());
+        getSystemService(NotificationManager.class).notify(NOTIFICATION_ID, builder.build());
+    }
+
+    private void checkIntentForCode() {
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra(EXTRA_VERIFICATION_CODE)) {
+            String codeFromNotification = intent.getStringExtra(EXTRA_VERIFICATION_CODE);
+            if (codeFromNotification != null && codeFromNotification.length() == 5) {
+                generatedCode = codeFromNotification;
+                autoFillCode(generatedCode);
+            }
+        }
+    }
+
+    private void autoFillCode(String code) {
+        if (code.length() != 5) return;
+
+        // Заполняем поля ввода кодом из уведомления
+        firstNumber.setText(String.valueOf(code.charAt(0)));
+        secondNumber.setText(String.valueOf(code.charAt(1)));
+        thirdNumber.setText(String.valueOf(code.charAt(2)));
+        fourthNumber.setText(String.valueOf(code.charAt(3)));
+        fifthNumber.setText(String.valueOf(code.charAt(4)));
+
+        // Переводим фокус на последнее поле
+        fifthNumber.requestFocus();
+
+        // Обновляем состояние кнопки
+        updateButtonState();
+
+        Toast.makeText(this, "Код автоматически заполнен", Toast.LENGTH_SHORT).show();
     }
 
     private void setupClickListeners() {
@@ -224,6 +277,7 @@ public class VerificationCodeSignUp extends AppCompatActivity {
                     // Код верный - переходим на MainActivity
                     startActivity(new Intent(this, ChooseRole.class));
                     finish(); // Закрываем текущую активность
+                    overridePendingTransition(R.anim.slide_in_right_login, 0);
                 } else {
                     // Код неверный - показываем Toast
                     Toast.makeText(this, "Неверный код подтверждения", Toast.LENGTH_SHORT).show();
@@ -310,6 +364,13 @@ public class VerificationCodeSignUp extends AppCompatActivity {
         fourthNumber.setText("");
         fifthNumber.setText("");
         firstNumber.requestFocus();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        checkIntentForCode();
     }
 
     @Override

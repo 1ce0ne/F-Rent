@@ -25,6 +25,10 @@ public class NotHaveProducts extends AppCompatActivity {
 
         // Обработка нажатия на кнопку "Назад"
         ImageView buttonBack = findViewById(R.id.buttonBack);
-        buttonBack.setOnClickListener(v -> finish()); // Закрываем текущую активность
+
+        buttonBack.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(0, R.anim.slide_out_right_signup);
+        });
     }
 }

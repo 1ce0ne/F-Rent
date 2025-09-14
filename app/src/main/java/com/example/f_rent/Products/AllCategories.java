@@ -35,15 +35,9 @@ public class AllCategories extends AppCompatActivity { // Изменено им�
         // Находим кнопку "Назад"
         ImageView buttonBack = findViewById(R.id.buttonBack);
         // Устанавливаем обработчик клика для кнопки "Назад"
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Создаем Intent для перехода на MainActivity
-                Intent intent = new Intent(AllCategories.this, MainActivity.class); // Изменено имя класса
-                startActivity(intent);
-                // Закрываем текущую активность, чтобы при нажатии "Назад" в MainActivity не вернуться сюда
-                finish();
-            }
+        buttonBack.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(0, R.anim.slide_out_right_signup);
         });
 
         // --- Настройка кликов для каждой категории отдельно ---
@@ -64,6 +58,7 @@ public class AllCategories extends AppCompatActivity { // Изменено им�
             Intent intent = new Intent(AllCategories.this, ToolsClass.class);
             intent.putExtra("CATEGORY_NAME", "Инструменты");
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         });
 
         // Категория 3: Электроника (FrameLayout category_frame_3)
@@ -72,6 +67,7 @@ public class AllCategories extends AppCompatActivity { // Изменено им�
             Intent intent = new Intent(AllCategories.this, NotHaveProducts.class);
             intent.putExtra("CATEGORY_NAME", "Электроника");
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         });
 
         // Категория 4: Для мероприятий (FrameLayout category_frame_4)
@@ -80,6 +76,7 @@ public class AllCategories extends AppCompatActivity { // Изменено им�
             Intent intent = new Intent(AllCategories.this, NotHaveProducts.class);
             intent.putExtra("CATEGORY_NAME", "Для мероприятий");
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         });
 
         // Категория 5: Для дома и быта (FrameLayout category_frame_5)
@@ -88,6 +85,7 @@ public class AllCategories extends AppCompatActivity { // Изменено им�
             Intent intent = new Intent(AllCategories.this, NotHaveProducts.class);
             intent.putExtra("CATEGORY_NAME", "Для дома и быта");
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         });
 
         // Категория 6: Спорт и отдых (FrameLayout category_frame_6)
@@ -96,6 +94,7 @@ public class AllCategories extends AppCompatActivity { // Изменено им�
             Intent intent = new Intent(AllCategories.this, NotHaveProducts.class);
             intent.putExtra("CATEGORY_NAME", "Спорт и отдых");
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         });
 
         // Категория 7: Для детей (FrameLayout category_frame_7)
@@ -104,6 +103,7 @@ public class AllCategories extends AppCompatActivity { // Изменено им�
             Intent intent = new Intent(AllCategories.this, NotHaveProducts.class);
             intent.putExtra("CATEGORY_NAME", "Для детей");
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         });
 
         // Категория 8: Аксессуары (FrameLayout category_frame_8)
@@ -112,6 +112,7 @@ public class AllCategories extends AppCompatActivity { // Изменено им�
             Intent intent = new Intent(AllCategories.this, NotHaveProducts.class);
             intent.putExtra("CATEGORY_NAME", "Аксессуары");
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         });
 
         // Категория 9: Профессиональная сфера (FrameLayout category_frame_9)
@@ -120,6 +121,7 @@ public class AllCategories extends AppCompatActivity { // Изменено им�
             Intent intent = new Intent(AllCategories.this, NotHaveProducts.class);
             intent.putExtra("CATEGORY_NAME", "Профессиональная сфера");
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right_login, 0);
         });
     }
 }

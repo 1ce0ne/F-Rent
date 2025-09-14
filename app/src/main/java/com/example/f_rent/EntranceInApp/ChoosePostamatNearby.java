@@ -1,6 +1,7 @@
 package com.example.f_rent.EntranceInApp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -11,15 +12,20 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.f_rent.MainActivity;
 import com.example.f_rent.R;
 
 import org.osmdroid.config.Configuration;
@@ -38,6 +44,8 @@ public class ChoosePostamatNearby extends AppCompatActivity {
     private LocationManager locationManager;
     private LocationListener locationListener;
 
+    private ImageView buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,11 +63,26 @@ public class ChoosePostamatNearby extends AppCompatActivity {
         mapView = findViewById(R.id.mapView);
         loginWithPhone = findViewById(R.id.login_with_phone);
         textLoginWithPhone = findViewById(R.id.textLoginWithPhone);
+        buttonBack = findViewById(R.id.buttonBack);
     }
 
     private void setupClickListeners() {
         loginWithPhone.setOnClickListener(v -> handleContinueButtonClick());
         textLoginWithPhone.setOnClickListener(v -> handleContinueButtonClick());
+
+        // Установка обработчика клика для кнопки назад
+        if (buttonBack != null) {
+            buttonBack.setOnClickListener(v -> {
+                finish();
+                overridePendingTransition(0, R.anim.slide_out_right_signup);
+            });
+        }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0, R.anim.slide_out_right_signup);
     }
 
     private void handleContinueButtonClick() {
@@ -87,11 +110,68 @@ public class ChoosePostamatNearby extends AppCompatActivity {
         }
         marker.setPosition(postamatPoint);
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+
+        // Добавляем обработчик нажатия на маркер
+        marker.setOnMarkerClickListener((marker1, mapView) -> {
+            showPostamatDialog();
+            return true;
+        });
+
         mapView.getOverlays().add(marker);
         mapView.invalidate();
 
         // Дополнительно: анимируем к постамату чтобы убедиться что он виден
         mapView.getController().animateTo(postamatPoint);
+    }
+
+    private void showPostamatDialog() {
+        // Создаем диалоговое окно
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.activity_podt_postamat, null);
+        builder.setView(dialogView);
+
+        AlertDialog dialog = builder.create();
+
+        // Находим элементы в диалоге
+        FrameLayout frameLayout3 = dialogView.findViewById(R.id.frameLayout3);
+        TextView textView9 = dialogView.findViewById(R.id.textView9);
+        ImageView krestYobannyi = dialogView.findViewById(R.id.krestYobannyi);
+
+        // Устанавливаем обработчики нажатий
+        View.OnClickListener goToMainActivityListener = v -> {
+            // Сохраняем user_login = true в user_prefs
+            saveUserLoginStatus();
+
+            // Переход к MainActivity
+            Intent intent = new Intent(ChoosePostamatNearby.this, MainActivity.class);
+            startActivity(intent);
+            // Добавляем анимацию перехода
+            overridePendingTransition(0, R.anim.slide_out_right_signup);
+            dialog.dismiss();
+            finish(); // Закрываем текущую активность
+        };
+
+        frameLayout3.setOnClickListener(goToMainActivityListener);
+        textView9.setOnClickListener(goToMainActivityListener);
+
+        krestYobannyi.setOnClickListener(v -> {
+            // Закрываем диалог
+            dialog.dismiss();
+        });
+
+        dialog.show();
+    }
+
+    private void saveUserLoginStatus() {
+        // Получаем SharedPreferences с именем "user_prefs"
+        android.content.SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        android.content.SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        // Сохраняем user_login = true
+        editor.putBoolean("user_login", true);
+        editor.apply(); // или editor.commit() для синхронного сохранения
+//        Toast.makeText(this, "Данные сохранены", Toast.LENGTH_SHORT).show();
     }
 
     private void checkLocationPermission() {
