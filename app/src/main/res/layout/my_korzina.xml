@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Кнопка "Назад" -->
+    <ImageView
+        android:id="@+id/buttonBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginStart="27dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout5"
+        android:layout_width="0dp"
+        android:layout_height="237dp"
+        android:visibility="visible"
+        android:background="@drawable/rounded_top_korzina"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/entrance_with_phone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Арендовать"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/bezSkidok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="17dp"
+                android:fontFamily="@font/montserrat_light"
+                android:text="Без скидки"
+                android:textColor="#858585"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3" />
+
+            <TextView
+                android:id="@+id/itogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Итого:"
+                android:textColor="#000000"
+                android:textSize="21sp"
+                app:layout_constraintBottom_toTopOf="@+id/bezSkidok"
+                app:layout_constraintStart_toStartOf="@+id/bezSkidok" />
+
+            <TextView
+                android:id="@+id/costsBezSkidok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="17dp"
+                android:fontFamily="@font/montserrat_light"
+                android:text="3 480₽"
+                android:textColor="#858585"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout3" />
+
+            <TextView
+                android:id="@+id/costsItogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="3 480₽"
+                android:textColor="#000000"
+                android:textSize="21sp"
+                app:layout_constraintBottom_toTopOf="@+id/costsBezSkidok"
+                app:layout_constraintEnd_toEndOf="@+id/costsBezSkidok" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="17dp"
+                android:layout_weight="1"
+                android:background="@drawable/choose_time_not_active"
+                app:layout_constraintBottom_toTopOf="@+id/itogo"
+                app:layout_constraintEnd_toEndOf="@+id/costsItogo"
+                app:layout_constraintStart_toStartOf="@+id/itogo"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:id="@+id/sumbitPromo"
+                    android:layout_width="108dp"
+                    android:layout_height="29dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="11dp"
+                    android:background="@drawable/promo_primenit">
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Применить"
+                        android:textColor="@color/white"
+                        android:textSize="11sp" />
+                </FrameLayout>
+
+                <EditText
+                    android:id="@+id/editTextText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:inputType="text"
+                    android:text="Добавить промокод"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/korzina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Корзина"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        app:layout_constraintStart_toStartOf="@+id/buttonBack"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
+
+    <TextView
+        android:id="@+id/myKorzina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Избранное"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/korzina"
+        app:layout_constraintTop_toBottomOf="@+id/korzina" />
+
+    <TextView
+        android:id="@+id/inRent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="В аренде"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/myKorzina"
+        app:layout_constraintTop_toTopOf="@+id/myKorzina" />
+
+    <TextView
+        android:id="@+id/inBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Сдано"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/inRent"
+        app:layout_constraintTop_toTopOf="@+id/inRent" />
+
+    <FrameLayout
+        android:id="@+id/layoutForWindow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myKorzina">
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
