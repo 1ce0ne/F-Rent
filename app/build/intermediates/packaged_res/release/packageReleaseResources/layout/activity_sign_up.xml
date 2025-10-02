@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="65dp"
+
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:srcCompat="@drawable/frent_logotip_mini" />
+
+    <!-- Текст внизу -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginBottom="35dp"
+        android:fontFamily="@font/montserrat_light"
+
+        android:gravity="center_horizontal"
+        android:text="Нажимая кнопку «Регистрация», вы подтверждаете ваше согласие с нашей политикой конфединциальности и с договором оферты."
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Основной контент посередине (растягивается) -->
+    <FrameLayout
+        android:id="@+id/login_with_phone"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/entrance_with_phone"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textLoginWithPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:clickable="true"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Войти"
+
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <!-- Основной контент посередине (растягивается) -->
+    <FrameLayout
+        android:id="@+id/poleWithPlusSeven"
+        android:layout_width="70dp"
+        android:layout_height="54dp"
+
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/text_input_pole_sign_up"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/login_with_phone"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/plusSeven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:clickable="false"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="+7"
+                android:textColor="@color/black"
+
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/flagRussia"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/flagRussia"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/russia_flag" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <!-- Основной контент посередине (растягивается) -->
+    <FrameLayout
+        android:id="@+id/poleForNumber"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/text_input_pole_sign_up"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/login_with_phone"
+        app:layout_constraintEnd_toEndOf="@+id/login_with_phone"
+        app:layout_constraintStart_toEndOf="@+id/poleWithPlusSeven">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="18dp"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:fontFamily="@font/montserrat_regular"
+                android:inputType="number"
+                android:text="(987)-654-32-10"
+                android:textColor="#858585"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <!-- Основной контент посередине (растягивается) -->
+    <FrameLayout
+        android:id="@+id/poleForName"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/text_input_pole_sign_up"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/poleWithPlusSeven"
+        app:layout_constraintEnd_toEndOf="@+id/login_with_phone"
+        app:layout_constraintStart_toStartOf="@+id/poleWithPlusSeven">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="18dp"
+                android:background="@android:color/transparent"
+                android:ems="100"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="ФИО"
+                android:inputType="text"
+                android:textColor="#858585"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/labelSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Вход"
+        android:textColor="@color/black"
+
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/poleForName"
+        app:layout_constraintStart_toStartOf="@+id/poleForName" />
+</androidx.constraintlayout.widget.ConstraintLayout>

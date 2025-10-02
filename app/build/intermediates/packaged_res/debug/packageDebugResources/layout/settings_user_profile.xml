@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_layout_settings"
+    android:background="@color/white">
+
+    <!-- Кнопка "Назад" -->
+    <ImageView
+        android:id="@+id/buttonBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
+
+    <TextView
+        android:id="@+id/textUserProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Настройки"
+        android:textColor="#858585"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/buttonBack"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
+
+    <ImageView
+        android:id="@+id/button_continue"
+        android:layout_width="5dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="7dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textUserProfile"
+        app:layout_constraintStart_toEndOf="@+id/textUserProfile"
+        app:layout_constraintTop_toTopOf="@+id/textUserProfile"
+        app:srcCompat="@drawable/arrow_right_profile_gray" />
+
+    <TextView
+        android:id="@+id/textUserSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Профиль"
+        android:layout_marginStart="7dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/button_continue"
+        app:layout_constraintTop_toTopOf="@+id/textUserProfile" />
+
+    <FrameLayout
+        android:id="@+id/frameUserSettings"
+        android:layout_width="0dp"
+
+        android:layout_height="61dp"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/rounded_background_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textUserProfile">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutChangeName"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginStart="20dp"
+
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Изменить ФИО"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/button_continue_passport"
+                    android:layout_width="6dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="22dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_weight="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/arrow_right_all_categories" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameDeleteAccount"
+        android:layout_width="0dp"
+
+        android:layout_height="61dp"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/rounded_background_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameUserSettings">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Удалить аккаунт"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/button_delete_accout"
+                android:layout_width="6dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="22.5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_right_all_categories" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

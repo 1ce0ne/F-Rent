@@ -1,0 +1,3 @@
+com.example.f_rent.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

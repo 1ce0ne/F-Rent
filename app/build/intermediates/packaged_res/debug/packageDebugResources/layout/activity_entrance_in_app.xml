@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:background="#F5F5F5">
+
+    <ImageView
+        android:id="@+id/VectorEntrance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/vector_for_entrance" />
+
+    <FrameLayout
+        android:id="@+id/downLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VectorEntrance"
+        android:background="@drawable/rounded_top_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="25dp">
+
+            <!-- Логотип вверху -->
+            <ImageView
+                android:id="@+id/miniLogo"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                app:srcCompat="@drawable/frent_logotip_mini" />
+
+            <!-- Прозрачный объект для создания пространства -->
+            <View
+                android:id="@+id/spacer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent" />
+
+            <!-- Текст внизу -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idk">
+
+                <!-- Первая строка -->
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:clickable="true"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="start"
+                    android:text="Войдите, чтобы"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Вторая строка -->
+
+                <!-- Третья строка - иконка и тексты -->
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="-3dp"
+                    android:clickable="true"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="start"
+                    android:text="пользоваться"
+                    android:textColor="#A3A3A3"
+
+                    android:textSize="23sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text1" />
+
+                <TextView
+                    android:id="@+id/text3"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+
+                    android:clickable="true"
+                    android:gravity="center_vertical|start"
+                    android:text="📦 вещами"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
+
+                    android:layout_marginTop="-3dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text2" />
+
+                <TextView
+                    android:id="@+id/text4"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:clickable="true"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="start|center_vertical"
+                    android:text=" дешево"
+                    android:textColor="#A3A3A3"
+                    android:textSize="23sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/text3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/text3"
+                    app:layout_constraintTop_toTopOf="@+id/text3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Основной контент посередине (растягивается) -->
+            <FrameLayout
+                android:id="@+id/login_with_phone"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_weight="0"
+
+                android:clickable="true"
+                android:background="@drawable/entrance_with_phone"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="55dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textLoginWithPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:clickable="true"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Войти с помощью телефона"
+
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+
+
+            <!-- Основной контент посередине (растягивается) -->
+
+            <!-- Текст внизу -->
+
+        </LinearLayout>
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

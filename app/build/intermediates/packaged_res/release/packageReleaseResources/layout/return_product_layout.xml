@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/changeUserNameContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="280dp"
+
+        android:layout_marginBottom="-10dp"
+        android:background="@drawable/chooze_size_not_active"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textProlongRent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Вернуть товар"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/krestYobannyiReturn"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="27dp"
+                android:layout_weight="0"
+                app:layout_constraintBottom_toBottomOf="@+id/textProlongRent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textProlongRent"
+                app:srcCompat="@drawable/krest_blyat" />
+
+            <FrameLayout
+                android:id="@+id/frameLayoutContinue"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="27dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/entrance_with_phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNameAddress">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Продолжить"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <!-- Первый элемент - Костюм Diesel -->
+            <ImageView
+                android:id="@+id/imageViewCostumeDiesel"
+                android:layout_width="60dp"
+                android:layout_height="80.4dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="@+id/textProlongRent"
+                app:layout_constraintTop_toBottomOf="@+id/textProlongRent"
+                app:srcCompat="@drawable/drel_nahu" />
+
+            <TextView
+                android:id="@+id/textViewCategoryDiesel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Товар"
+                android:textColor="#858585"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCostumeDiesel"
+                app:layout_constraintTop_toTopOf="@+id/imageViewCostumeDiesel" />
+
+            <TextView
+                android:id="@+id/textViewNameDiesel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Перфоратор"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCostumeDiesel"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCategoryDiesel" />
+
+            <TextView
+                android:id="@+id/textViewPriceLabelDiesel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Срок аренды"
+                android:textColor="#858585"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/krestYobannyiReturn"
+                app:layout_constraintStart_toEndOf="@+id/textAddressOfPostamat"
+                app:layout_constraintTop_toTopOf="@+id/imageViewCostumeDiesel" />
+
+            <TextView
+                android:id="@+id/textViewPriceDiesel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Не знаю :("
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/textViewPriceLabelDiesel"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCategoryDiesel" />
+
+            <TextView
+                android:id="@+id/textAddressOfPostamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Адрес постамата"
+                android:textColor="#858585"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCostumeDiesel"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNameDiesel" />
+
+            <TextView
+                android:id="@+id/textViewNameAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="«МДЦ «АРТЕК»\n«Русская поляна»"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCostumeDiesel"
+                app:layout_constraintTop_toBottomOf="@+id/textAddressOfPostamat" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

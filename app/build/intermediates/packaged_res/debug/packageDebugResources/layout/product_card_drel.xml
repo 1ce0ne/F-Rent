@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1">
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="-6dp"
+        android:layout_marginHorizontal="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/drel_blyat" />
+
+    <ImageView
+        android:id="@+id/buttonInfo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/info" />
+
+    <!-- Кнопка "Назад" -->
+    <ImageView
+        android:id="@+id/buttonBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="27dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
+
+    <ImageView
+        android:id="@+id/buttonShare"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonInfo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/share" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="409dp"
+        android:layout_height="424dp"
+        android:background="@drawable/rounded_top_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/entrance_with_phone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/frameLayout"
+                app:layout_constraintStart_toStartOf="parent" >
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Арендовать"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:textSize="14sp"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/entrance_with_phone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" >
+
+                <ImageView
+                    android:id="@+id/heart"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/heart" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="17dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Инструмент с тремя рабочими режимами для работ в мастерской или стройплощадке"
+                android:textColor="#858585"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Описание"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView5"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3" />
+
+            <FrameLayout
+                android:id="@+id/oneHourButton"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/chooze_size_not_active"
+                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintStart_toStartOf="@+id/textView6">
+
+                <TextView
+                    android:id="@+id/oneHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="1 час"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/oneDayButton"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/chooze_size_active"
+                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintStart_toEndOf="@+id/oneHourButton">
+
+                <TextView
+                    android:id="@+id/oneDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="1 день"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/oneMonthButton"
+                android:layout_width="112dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/chooze_size_not_active"
+                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintStart_toEndOf="@+id/oneDayButton">
+
+                <TextView
+                    android:id="@+id/oneMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Свой срок"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Срок аренды"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/oneHourButton"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3" />
+
+            <FrameLayout
+                android:id="@+id/mediumButton"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/chooze_size_not_active"
+                app:layout_constraintBottom_toTopOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="@+id/textView6">
+
+                <TextView
+                    android:id="@+id/medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="35нм"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/extraLargeButton"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/chooze_size_not_active"
+                app:layout_constraintBottom_toTopOf="@+id/textView7"
+                app:layout_constraintStart_toEndOf="@+id/mediumButton">
+
+                <TextView
+                    android:id="@+id/extraLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="45нм"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/extraExtraLargeButton"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/chooze_size_active"
+                app:layout_constraintBottom_toTopOf="@+id/textView7"
+                app:layout_constraintStart_toEndOf="@+id/extraLargeButton">
+
+                <TextView
+                    android:id="@+id/extraExtraLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="60нм"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/extra2"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="14dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/chooze_size_not_active"
+                app:layout_constraintBottom_toTopOf="@+id/textView7"
+                app:layout_constraintStart_toEndOf="@+id/extraExtraLargeButton">
+
+                <TextView
+                    android:id="@+id/extra22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="90нм"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/extra140"
+                android:layout_width="68dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="14dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/chooze_size_not_active"
+                app:layout_constraintBottom_toTopOf="@+id/textView7"
+                app:layout_constraintStart_toEndOf="@+id/extra2">
+
+                <TextView
+                    android:id="@+id/extra1400"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="140нм"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Крутящий момент"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/mediumButton"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="@+id/textView8"
+                app:layout_constraintStart_toStartOf="@+id/textView8">
+
+                <ImageView
+                    android:id="@+id/star"
+                    android:layout_width="14dp"
+                    android:layout_height="13dp"
+                    android:layout_weight="0"
+                    app:srcCompat="@drawable/star" />
+
+                <TextView
+                    android:id="@+id/textFeedBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="5 (35 просмотр)"
+                    android:textColor="#858585"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textZalog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="end"
+                    android:text="+250₽ залог"
+                    android:textColor="#858585"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout4">
+
+                <TextView
+                    android:id="@+id/textNameOfProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Дрель-шуруповерт"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+                    app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                    app:layout_constraintStart_toStartOf="@+id/frameLayout3" />
+
+                <TextView
+                    android:id="@+id/textHowCosts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="end"
+                    android:text="620₽"
+                    android:textColor="#000000"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+                    app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                    app:layout_constraintStart_toStartOf="@+id/frameLayout3" />
+
+                <TextView
+                    android:id="@+id/textInDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="end"
+                    android:text="/сутки"
+                    android:textColor="#858585"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,6 @@
+com.example.f_rent.test.app-core-1.7.0-0 C:\Users\Иван\.gradle\caches\8.13\transforms\c95f9fa5a3aa179a5079bcd655fa082c\transformed\core-1.7.0\res
+com.example.f_rent.test.app-androidTest-1 D:\FRent\app\build\generated\res\resValues\androidTest\debug
+com.example.f_rent.test.app-updated_navigation_xml-2 D:\FRent\app\build\generated\updated_navigation_xml\debugAndroidTest
+com.example.f_rent.test.app-mergeDebugAndroidTestResources-3 D:\FRent\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.f_rent.test.app-mergeDebugAndroidTestResources-4 D:\FRent\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.f_rent.test.app-debugAndroidTest-5 D:\FRent\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

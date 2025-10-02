@@ -1,0 +1,602 @@
+[
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_choose_role.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_choose_role.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_palatka.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/palatka.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_shurupovert.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/shurupovert.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_pinmark_for_postamat.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/pinmark_for_postamat.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_circle_pila.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/circle_pila.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_product_card_drel.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/product_card_drel.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_location.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/location.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_moya_korzina_blyat_kamen.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/moya_korzina_blyat_kamen.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_product_card_kostum.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/product_card_kostum.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_shlifovalnya.jpg.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/shlifovalnya.jpg"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/font_montserrat_light.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/font/montserrat_light.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_drel_blyat.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/drel_blyat.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_cards.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/cards.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_choose_time_active.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/choose_time_active.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_time.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/time.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_search_pole_main_menu.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/search_pole_main_menu.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/font_montserrat.ttf.flat",
+        "source": "com.example.f_rent.app-main-36:/font/montserrat.ttf"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/font_montserrat_bold.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/font/montserrat_bold.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/font_montserrat_medium.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/font/montserrat_medium.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_change_user_name.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/change_user_name.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_paper_clip.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/paper_clip.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_proector.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/proector.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_choose_role_not_active.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/choose_role_not_active.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_main_menu.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_main_menu.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_return_product_layout.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/return_product_layout.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_boat.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/boat.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_my_korzina.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/my_korzina.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_all_categories.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_all_categories.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_custom_time_for_rent.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/custom_time_for_rent.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_pila.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/pila.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_drel_nahu.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/drel_nahu.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_kostum.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/kostum.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_best_costs_background.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/best_costs_background.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_korzina.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/korzina.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_rounded_top_korzina.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/rounded_top_korzina.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_rock.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/rock.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_sdano_blyat.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/sdano_blyat.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_projector.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/projector.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_frent_logotip_mini.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/frent_logotip_mini.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_vacuum_cleaner.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/vacuum_cleaner.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_star.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/star.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_verification_code.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_verification_code.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_rock_blyat.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/rock_blyat.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_vector_for_entrance.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/vector_for_entrance.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-hdpi_frent_logotip_icon.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-hdpi/frent_logotip_icon.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_search_icon_for_categories.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/search_icon_for_categories.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_helping.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/helping.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_chooze_size_not_active.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/chooze_size_not_active.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_profile_user_basic.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/profile_user_basic.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/anim_slide_out_right_signup.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/anim/slide_out_right_signup.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_playstation_blyat.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/playstation_blyat.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_box_icon.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/box_icon.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_login_number.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_login_number.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_shield_tick.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/shield_tick.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_choose_nearby_postamat_main.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_choose_nearby_postamat_main.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_russia_flag.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/russia_flag.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_faq.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/faq.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_prolong_rent_product.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/prolong_rent_product.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_arrow_right_all_categories.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/arrow_right_all_categories.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_check.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/check.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_product_not_have.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/product_not_have.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_share.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/share.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_krest_2.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/krest_2.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_heart.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/heart.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_arrow_right_profile_gray.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/arrow_right_profile_gray.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_paper.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/paper.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_delivery_time.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/delivery_time.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_return_product_window.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/return_product_window.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/xml_backup_rules.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_choose_nearby_postamat.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_choose_nearby_postamat.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_frent_logo_splash_screen.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/frent_logo_splash_screen.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_passport_user_profile.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/passport_user_profile.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_button_user_profile.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/button_user_profile.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_info.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/info.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_button_back_choose_role.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/button_back_choose_role.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_jigsaw.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/jigsaw.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_arrow_right_main_menu.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/arrow_right_main_menu.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_product_card.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/product_card.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_profile_user_seller.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/profile_user_seller.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_card_mir.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/card_mir.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_drel_nahu_dark.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/drel_nahu_dark.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_perekati_pole.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/perekati_pole.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_entrance_with_telegram.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/entrance_with_telegram.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/anim_slide_in_right_login.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/anim/slide_in_right_login.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_vacuum_cleaner_dark.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/vacuum_cleaner_dark.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_krest_blyat.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/krest_blyat.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_moya_korzina_blyat.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/moya_korzina_blyat.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_pencxil.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/pencxil.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_choose_time_not_active.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/choose_time_not_active.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_vector_discount.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/vector_discount.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_rounded_for_pin_passport.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/rounded_for_pin_passport.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_settings_user_profile.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/settings_user_profile.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_vector_for_verification_code.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/vector_for_verification_code.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_choose_role_active.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/choose_role_active.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/font_jost.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/font/jost.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_rounded_background_profile.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/rounded_background_profile.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_playstation.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/playstation.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_costum_for_products.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/costum_for_products.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_typo_oplatil_nahui.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/typo_oplatil_nahui.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_sign_up.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_sign_up.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_v_arende_blyat.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/v_arende_blyat.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_kostum_blyat.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/kostum_blyat.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_chooze_size_active.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/chooze_size_active.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_promo_primenit.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/promo_primenit.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/font_montserrat_semibold.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/font/montserrat_semibold.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_vector_for_discount.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/vector_for_discount.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_text_input_pole_sign_up.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/text_input_pole_sign_up.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_product_card_playstation.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/product_card_playstation.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_entrance_in_app.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_entrance_in_app.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/anim_splash_screen_fade_in.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/anim/splash_screen_fade_in.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_check_tovar_blyat.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/check_tovar_blyat.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_vse_food_blyat.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/vse_food_blyat.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_product_activity_clothes.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/product_activity_clothes.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/font_montserrat_regular.ttf.flat",
+        "source": "com.example.f_rent.app-main-36:/font/montserrat_regular.ttf"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_entrance_with_phone.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/entrance_with_phone.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_change_nearby_location.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/change_nearby_location.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_splash_screen.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_splash_screen.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_box.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/box.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-hdpi_logo.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-hdpi/logo.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_setting_icon.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/setting_icon.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_typo_oplata_nahui.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/typo_oplata_nahui.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_rounded_top_background.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/rounded_top_background.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_search_icon.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/search_icon.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_product_activity_tools.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/product_activity_tools.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.f_rent.app-main-36:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_back_button.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/back_button.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_discount.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/discount.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_geolocation.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/geolocation.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_ic_telegram.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/ic_telegram.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_russia.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/russia.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/anim_splash_screen_fade_out.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/anim/splash_screen_fade_out.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_moya_korzina_pusto.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/moya_korzina_pusto.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_gosuslugi.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/gosuslugi.png"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_sale_background.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/sale_background.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/layout_activity_podt_postamat.xml.flat",
+        "source": "com.example.f_rent.app-main-36:/layout/activity_podt_postamat.xml"
+    },
+    {
+        "merged": "com.example.f_rent.app-release-35:/drawable_platye.png.flat",
+        "source": "com.example.f_rent.app-main-36:/drawable/platye.png"
+    }
+]

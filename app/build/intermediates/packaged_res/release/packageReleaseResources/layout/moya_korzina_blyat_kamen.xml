@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:background="@color/white">
+
+    <!-- Первый элемент - Костюм Diesel -->
+    <ImageView
+        android:id="@+id/imageViewCostumeDiesel"
+        android:layout_width="55dp"
+        android:layout_height="70.4dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rock" />
+
+    <TextView
+        android:id="@+id/textViewCategoryDiesel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Сувенир"
+        android:textColor="#858585"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewCostumeDiesel"
+        app:layout_constraintTop_toTopOf="@+id/imageViewCostumeDiesel" />
+
+    <TextView
+        android:id="@+id/textViewNameDiesel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Сувенир с Аю-Дага"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewCostumeDiesel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCategoryDiesel" />
+
+    <FrameLayout
+        android:id="@+id/frameLayoutDurationDiesel"
+        android:layout_width="126dp"
+        android:layout_height="29dp"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/choose_time_not_active"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewCostumeDiesel"
+        app:layout_constraintStart_toStartOf="@+id/textViewNameDiesel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameDiesel">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewDecreaseDiesel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:layout_weight="1.2"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/textViewDurationDiesel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1 день"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/textViewIncreaseDiesel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:layout_weight="1.2"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textViewPriceLabelDiesel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Цена"
+        android:textColor="#858585"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewRemoveDiesel"
+        app:layout_constraintStart_toEndOf="@+id/frameLayoutDurationDiesel"
+        app:layout_constraintTop_toTopOf="@+id/imageViewCostumeDiesel" />
+
+    <TextView
+        android:id="@+id/textViewPriceDiesel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="60₽"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewPriceLabelDiesel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCategoryDiesel" />
+
+    <TextView
+        android:id="@+id/textViewSizeLabelDiesel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Размер"
+        android:textColor="#858585"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewPriceLabelDiesel"
+        app:layout_constraintTop_toTopOf="@+id/frameLayoutDurationDiesel" />
+
+    <TextView
+        android:id="@+id/textViewSizeDiesel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="L"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewPriceLabelDiesel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSizeLabelDiesel" />
+
+    <ImageView
+        android:id="@+id/imageViewRemoveDiesel"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewCategoryDiesel"
+        app:srcCompat="@drawable/krest_2" />
+
+    <!-- Второй элемент - Костюм Gucci -->
+
+    <!-- Третий элемент - Костюм Prada -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

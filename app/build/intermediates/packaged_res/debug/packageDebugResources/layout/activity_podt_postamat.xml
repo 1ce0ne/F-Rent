@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <FrameLayout
+        android:layout_width="355dp"
+        android:layout_height="238dp"
+
+        android:background="@drawable/chooze_size_not_active"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="27dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/entrance_with_phone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Продолжить"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="0dp"
+                android:layout_height="62dp"
+
+                android:layout_marginHorizontal="27dp"
+                android:layout_marginBottom="18dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_light"
+                    android:text="Республика Крым, городской округ Ялта, посёлок городского типа Гурзуф.\n«МДЦ «АРТЕК» - «Русская поляна»"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="62dp"
+                android:layout_marginHorizontal="27dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+
+                    android:layout_weight="1"
+
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Выбор постамата"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/krestYobannyi"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_weight="0.1"
+                    app:srcCompat="@drawable/krest_blyat" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

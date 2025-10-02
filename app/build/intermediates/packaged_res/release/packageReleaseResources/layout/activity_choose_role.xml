@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/main">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginBottom="35dp"
+        android:fontFamily="@font/montserrat_light"
+
+        android:gravity="center_horizontal"
+        android:text="Нажимая кнопку «Продолжить», вы подтверждаете ваше согласие с нашей политикой конфединциальности
+и с договором оферты."
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/buttonBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
+
+    <!-- Текст внизу -->
+
+    <!-- Основной контент посередине (растягивается) -->
+    <FrameLayout
+        android:id="@+id/login_with_phone"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/entrance_with_phone"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/textView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textLoginWithPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:clickable="true"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Продолжить"
+
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <!-- Основной контент посередине (растягивается) -->
+    <FrameLayout
+        android:id="@+id/poleWithSeller"
+        android:layout_width="0dp"
+        android:layout_height="95dp"
+
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/choose_role_not_active"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/login_with_phone"
+        app:layout_constraintEnd_toEndOf="@+id/login_with_phone"
+        app:layout_constraintStart_toStartOf="@+id/login_with_phone">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/people2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📦"
+                android:textSize="22sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sellerText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Арендодатель (продавец)"
+                android:textColor="#858585"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/people2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </FrameLayout>
+
+    <!-- Основной контент посередине (растягивается) -->
+    <FrameLayout
+        android:id="@+id/poleWithBuyer"
+        android:layout_width="0dp"
+        android:layout_height="95dp"
+
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/choose_role_not_active"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/poleWithSeller"
+        app:layout_constraintEnd_toEndOf="@+id/login_with_phone"
+        app:layout_constraintStart_toStartOf="@+id/login_with_phone">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/people"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_light"
+                android:text="🙋"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/buyerText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Арендатор (покупатель)"
+                android:textColor="#858585"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/people" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/labelSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Выберите роль"
+        android:textColor="@color/black"
+
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/poleWithBuyer"
+        app:layout_constraintStart_toStartOf="@+id/poleWithBuyer" />
+</androidx.constraintlayout.widget.ConstraintLayout>

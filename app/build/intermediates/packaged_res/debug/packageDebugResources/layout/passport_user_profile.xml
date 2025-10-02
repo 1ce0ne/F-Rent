@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Кнопка "Назад" -->
+    <ImageView
+        android:id="@+id/buttonBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_button" />
+
+    <TextView
+        android:id="@+id/textUserProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Настройки"
+        android:textColor="#858585"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/buttonBack"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
+
+    <ImageView
+        android:id="@+id/button_continue"
+        android:layout_width="5dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="7dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textUserProfile"
+        app:layout_constraintStart_toEndOf="@+id/textUserProfile"
+        app:layout_constraintTop_toTopOf="@+id/textUserProfile"
+        app:srcCompat="@drawable/arrow_right_profile_gray" />
+
+    <TextView
+        android:id="@+id/textUserSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Паспорт"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/button_continue"
+        app:layout_constraintTop_toTopOf="@+id/textUserProfile" />
+
+    <FrameLayout
+        android:id="@+id/frameScanPassport"
+        android:layout_width="0dp"
+
+        android:layout_height="193dp"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/rounded_background_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textUserProfile">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textScanPassport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Скан паспорта"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/pinPhotoPassport"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/rounded_for_pin_passport"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textScanPassport">
+
+                <TextView
+                    android:id="@+id/textPinPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12sp"
+                    android:textColor="#858585"
+                    android:text="Прикрепите скан паспорта\nили введите данные вручную" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="15dp"
+                    android:layout_height="21dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    app:srcCompat="@drawable/paper_clip" />
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameFullName"
+        android:layout_width="0dp"
+
+        android:layout_height="168dp"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/rounded_background_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameScanPassport">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Фамилия"
+                android:textSize="13sp"
+                android:textColor="#858585"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/button_redact"
+                android:layout_width="13dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView23"
+                app:srcCompat="@drawable/pencxil" />
+
+            <!-- Разделитель -->
+            <View
+                android:id="@+id/razdelitel1"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#858585"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Имя"
+                android:textColor="#858585"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/razdelitel1" />
+
+            <ImageView
+                android:id="@+id/button_redact_2"
+                android:layout_width="13dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView24"
+                app:srcCompat="@drawable/pencxil" />
+
+            <!-- Разделитель -->
+            <View
+                android:id="@+id/razdelitel2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#858585"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Отчество (если есть)"
+                android:textColor="#858585"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/razdelitel2" />
+
+            <ImageView
+                android:id="@+id/button_redact_3"
+                android:layout_width="13dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView25"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView25"
+                app:srcCompat="@drawable/pencxil" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameNumberPassport"
+        android:layout_width="0dp"
+
+        android:layout_height="124dp"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/rounded_background_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameFullName">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textNumberPassport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Номер паспорта"
+                android:textColor="#858585"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/underLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="____ ______"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginStart="1dp"
+                app:layout_constraintStart_toStartOf="@+id/textNumberPassport"
+                app:layout_constraintTop_toBottomOf="@+id/textNumberPassport" />
+
+            <ImageView
+                android:id="@+id/button_redact_4"
+                android:layout_width="13dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/underLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textNumberPassport"
+                app:srcCompat="@drawable/pencxil" />
+
+            <!-- Разделитель -->
+            <View
+                android:id="@+id/razdelitel3"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#858585"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/underLine" />
+
+            <TextView
+                android:id="@+id/textCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Код подразделения"
+                android:layout_marginTop="10dp"
+                android:textColor="#858585"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/razdelitel3" />
+
+            <TextView
+                android:id="@+id/underLineCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="____-______"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/textNumberPassport"
+                app:layout_constraintTop_toBottomOf="@+id/textCode" />
+
+            <ImageView
+                android:id="@+id/button_redact_5"
+                android:layout_width="13dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/underLineCode"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textCode"
+                app:srcCompat="@drawable/pencxil" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameDatesPassport"
+        android:layout_width="0dp"
+
+        android:layout_height="105dp"
+        android:layout_marginHorizontal="27dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/rounded_background_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameNumberPassport">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textDateOfBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Дата рождения"
+                android:textColor="#858585"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <View
+                android:id="@+id/razdelitel4"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#858585"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDateOfBirthday" />
+
+            <ImageView
+                android:id="@+id/button_redact_6"
+                android:layout_width="13dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textDateOfBirthday"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textDateOfBirthday"
+                app:srcCompat="@drawable/pencxil" />
+
+            <TextView
+                android:id="@+id/textDateOfIssued"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Дата выдачи"
+                android:textColor="#858585"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/razdelitel4" />
+
+            <ImageView
+                android:id="@+id/button_redact_7"
+                android:layout_width="13dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textDateOfIssued"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textDateOfIssued"
+                app:srcCompat="@drawable/pencxil" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
